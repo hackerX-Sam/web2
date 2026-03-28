@@ -1150,7 +1150,7 @@ a:hover {
   display: flex;
   gap: 2.5rem;
   width: max-content;
-  animation: roll-right 40s linear infinite;
+  animation: roll-right 32s linear infinite;
 }
 
 @keyframes roll-right {
@@ -1168,7 +1168,7 @@ a:hover {
   flex-shrink: 0;
   border-radius: 50%;
   background: #1a1a2e;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
   border: 1px solid rgba(168, 85, 247, 0.2);
   display: flex;
