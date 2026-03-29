@@ -16,6 +16,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <!-- Orbitron Font (Preloader) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
   <!-- League Spartan Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -447,11 +451,328 @@
         display: none;
       }
     }
+
+    /* ===== DEEP-SPACE CANVAS BACKGROUND ===== */
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10001;
+      /* above overlay during preloader; JS drops to 0 after reveal */
+      pointer-events: none;
+      filter: grayscale(100%);
+      opacity: 1;
+      transition: filter 3s ease-out, opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #bgCanvas.color-active {
+      filter: grayscale(0%);
+    }
+
+    /* Canvas fades out when user scrolls past hero */
+    #bgCanvas.scroll-hidden {
+      opacity: 0;
+    }
+
+    /* ===== HIDE OLD BACKGROUND VIDEOS ===== */
+    video[src*="blackhole"],
+    video[src*="cards-video"] {
+      display: none !important;
+    }
+
+    .w-full.h-full.z-\[-10\].opacity-30.absolute {
+      display: none !important;
+    }
+
+    /* ===== PRELOADER OVERLAY ===== */
+    :root {
+      --neon-blue: #00f3ff;
+      --cursor-x: -1000px;
+      --cursor-y: -1000px;
+    }
+
+    #preloader-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #00040a;
+      pointer-events: all;
+      transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: none;
+    }
+
+    #preloader-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+      cursor: auto;
+    }
+
+
+    #pl-loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0.7);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 4px;
+      animation: pl-pulse 1.5s infinite alternate;
+      z-index: 10002;
+    }
+
+    @keyframes pl-pulse {
+      from {
+        opacity: 0.3;
+        text-shadow: 0 0 0px var(--neon-blue);
+      }
+
+      to {
+        opacity: 1;
+        text-shadow: 0 0 15px var(--neon-blue);
+      }
+    }
+
+    #pl-entering {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--neon-blue);
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1rem, 3vw, 1.6rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-shadow: 0 0 20px var(--neon-blue), 0 0 50px var(--neon-blue);
+      opacity: 0;
+      z-index: 10002;
+      pointer-events: none;
+      transition: opacity 0.8s ease-in-out;
+      white-space: nowrap;
+    }
+
+    #pl-entering.visible {
+      opacity: 1;
+    }
+
+    #pl-skip {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 10002;
+      background: rgba(0, 243, 255, 0.08);
+      border: 1px solid rgba(0, 243, 255, 0.35);
+      color: rgba(0, 243, 255, 0.7);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      padding: 7px 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+
+    #pl-skip:hover {
+      background: rgba(0, 243, 255, 0.2);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(0, 243, 255, 0.4);
+    }
+
+    /* ===== PRELOADER HUD INFO BOXES ===== */
+    .pl-info-box {
+      position: fixed;
+      z-index: 10002;
+      background: rgba(0, 10, 28, 0.72);
+      border: 1px solid rgba(0, 243, 255, 0.25);
+      border-radius: 6px;
+      padding: 10px 14px;
+      min-width: 160px;
+      max-width: 220px;
+      font-family: 'Orbitron', sans-serif;
+      pointer-events: none;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      box-shadow: 0 0 18px rgba(0, 243, 255, 0.07), inset 0 0 12px rgba(0, 243, 255, 0.03);
+    }
+
+    .pl-info-box::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -1px;
+      width: 10px; height: 10px;
+      border-top: 1px solid rgba(0, 243, 255, 0.7);
+      border-left: 1px solid rgba(0, 243, 255, 0.7);
+      border-radius: 2px 0 0 0;
+    }
+
+    .pl-info-box::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; right: -1px;
+      width: 10px; height: 10px;
+      border-bottom: 1px solid rgba(0, 243, 255, 0.7);
+      border-right: 1px solid rgba(0, 243, 255, 0.7);
+      border-radius: 0 0 2px 0;
+    }
+
+    .pl-info-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pl-info-label {
+      font-size: 0.45rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(0, 243, 255, 0.55);
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .pl-info-label::before {
+      content: '';
+      display: inline-block;
+      width: 5px; height: 5px;
+      background: rgba(0, 243, 255, 0.7);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--neon-blue);
+      animation: blink-dot 1.4s infinite alternate;
+    }
+
+    @keyframes blink-dot {
+      from { opacity: 0.3; } to { opacity: 1; }
+    }
+
+    .pl-info-value {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .pl-info-value em {
+      color: rgba(168, 85, 247, 0.95);
+      font-style: normal;
+    }
+
+    /* Box positions are assigned dynamically by JS – no fixed CSS IDs needed */
   </style>
 </head>
 
-<body class="__className_36bd41 bg-[#030014] overflow-y-scroll overflow-x-hidden relative">
+<body class="__className_36bd41 overflow-y-scroll overflow-x-hidden relative" style="background:#00040a;">
 
+  <!-- Deep-Space Background Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Preloader Overlay (sits above all page content) -->
+  <div id="preloader-overlay">
+    <div id="pl-loading">CALIBRATING TELESCOPES...</div>
+    <div id="pl-entering">ENTERING THE UNIVERSE...</div>
+    <button id="pl-skip" onclick="skipPreloader()">SKIP ›</button>
+
+    <!-- HUD Info Boxes -->
+    <div class="pl-info-box" id="pl-box-0"><div class="pl-info-label">Event</div><div class="pl-info-value" id="pl-box-0-val"></div></div>
+    <div class="pl-info-box" id="pl-box-1"><div class="pl-info-label">Details</div><div class="pl-info-value" id="pl-box-1-val"></div></div>
+    <div class="pl-info-box" id="pl-box-2"><div class="pl-info-label">Prize Pool</div><div class="pl-info-value" id="pl-box-2-val"></div></div>
+    <div class="pl-info-box" id="pl-box-3"><div class="pl-info-label">Highlights</div><div class="pl-info-value" id="pl-box-3-val"></div></div>
+    <div class="pl-info-box" id="pl-box-4"><div class="pl-info-label">Venue</div><div class="pl-info-value" id="pl-box-4-val"></div></div>
+    <div class="pl-info-box" id="pl-box-5"><div class="pl-info-label">Status</div><div class="pl-info-value" id="pl-box-5-val"></div></div>
+  </div>
+
+  <script>
+    (function () {
+      // All text snippets drawn from the webpage content
+      const snippets = [
+        { label: 'Event', text: '<em>CODE नक्षत्र II</em><br>Hybrid Technical Hackathon' },
+        { label: 'Tagline', text: '<em>Stars shaped by Rangers</em>' },
+        { label: 'Host', text: 'Trinity Institute of<br>Innovation & Professional Studies<br><em>Greater Noida</em>' },
+        { label: 'Prize Pool', text: '<em>₹1,00,000+</em><br>Total Prize Pool' },
+        { label: '1st Place', text: '<em>₹50,000</em><br>Gold Prize' },
+        { label: '2nd Place', text: '<em>₹25,000</em><br>Silver Prize' },
+        { label: '3rd Place', text: '<em>₹15,000</em><br>Bronze Prize' },
+        { label: 'Format', text: 'Round 1 – <em>Online</em><br>Round 2 – <em>Offline</em>' },
+        { label: 'Tracks', text: 'AI / ML · Web3<br>FinTech · SustainTech<br><em>Open Innovation</em>' },
+        { label: 'Register', text: 'namespace.world<br><em>Open Registrations</em>' },
+        { label: 'Community', text: 'Organized by<br><em>TIIPS Rangers</em><br>Coding Community' },
+        { label: 'Perks', text: 'Goodies · Swags<br>Cash Prizes · Mentorship<br><em>Networking</em>' },
+        { label: 'Mission', text: 'Empowering coders<br>to build the<br><em>next big thing</em>' },
+        { label: 'Edition', text: '<em>Season II</em><br>CODE नक्षत्र 2.0' },
+        { label: 'Contact', text: 'See you in<br><em>2026</em>' },
+      ];
+
+      // Shuffle and pick 6 unique snippets
+      function shuffle(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      const picked = shuffle(snippets).slice(0, 6);
+      picked.forEach((s, i) => {
+        const labelEl = document.querySelector('#pl-box-' + i + ' .pl-info-label');
+        const valEl   = document.getElementById('pl-box-' + i + '-val');
+        if (labelEl) labelEl.textContent = s.label; // ::before is CSS, not a DOM node
+        if (valEl) valEl.innerHTML = s.text;
+      });
+
+      // Expose globally so the animation engine can trigger it
+      window.showInfoBoxes = function () {
+        const W = window.innerWidth, H = window.innerHeight;
+        const BOX_W = 230, BOX_H = 110;
+        // Define 8 candidate zones (avoid centre where loading text lives)
+        // Each zone: { left, top } as pixel values with some jitter
+        const zones = [
+          { l: 0.02,  t: 0.06  }, // top-left
+          { l: 0.75,  t: 0.06  }, // top-right
+          { l: 0.02,  t: 0.42  }, // mid-left
+          { l: 0.75,  t: 0.42  }, // mid-right
+          { l: 0.02,  t: 0.75  }, // bottom-left
+          { l: 0.75,  t: 0.75  }, // bottom-right
+          { l: 0.32,  t: 0.06  }, // top-centre-left
+          { l: 0.55,  t: 0.06  }, // top-centre-right
+        ];
+
+        // Shuffle zones and pick 6
+        const zShuffled = shuffle(zones.slice());
+        const picked6Zones = zShuffled.slice(0, 6);
+
+        const boxes = document.querySelectorAll('.pl-info-box');
+        boxes.forEach((box, i) => {
+          const z = picked6Zones[i];
+          // Add slight random jitter so they are never exactly the same
+          const jitterX = (Math.random() - 0.5) * 0.04;
+          const jitterY = (Math.random() - 0.5) * 0.04;
+          const left = Math.max(0.01, Math.min(0.88, z.l + jitterX));
+          const top  = Math.max(0.04, Math.min(0.85, z.t + jitterY));
+          box.style.left = (left * 100).toFixed(1) + '%';
+          box.style.top  = (top  * 100).toFixed(1) + '%';
+          box.style.right = '';
+          box.style.bottom = '';
+          // Stagger fade-in — all 6 within ~900ms (≤ 1 second)
+          setTimeout(() => { box.classList.add('visible'); }, i * 150);
+        });
+      };
+
+      // Smoothly hide all boxes (called just before warp starts)
+      window.hideInfoBoxes = function () {
+        const boxes = document.querySelectorAll('.pl-info-box');
+        boxes.forEach((box) => {
+          box.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+          box.style.opacity = '0';
+          box.style.transform = 'translateY(-8px)';
+        });
+      };
+    })();
+  </script>
 
 
   <section id="gallery"
@@ -3862,6 +4183,282 @@
       }
     });
   </script>
+  <!-- ===== MERGED ANIMATION ENGINE (Preloader → Persistent Background) ===== -->
+  <script>
+    (function () {
+      const canvas = document.getElementById('bgCanvas');
+      const ctx = canvas.getContext('2d');
+      const overlay = document.getElementById('preloader-overlay');
+      const plLoading = document.getElementById('pl-loading');
+      const plEntering = document.getElementById('pl-entering');
+
+      let stars = [], connections = [], bgStars = [], meteors = [];
+      const NUM_CONST = 50, MAX_CONN_DIST = 150, BRIGHT_THRESH = 280, MIN_STAR_DIST = 15, MAX_STEPS = 6;
+      let currentStep = 0, stepProg = 0, maxStep = 0;
+      let phase = 'drawing', warpMult = 1, warpRot = 0, siteRevealed = false;
+
+      function setupCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        computePolar();
+      }
+      window.addEventListener('resize', () => {
+        if (phase !== 'deep_space') setupCanvas();
+        else { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+      });
+
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.src = 'image.png';
+      img.onload = () => { extractStars(); setupCanvas(); buildConstellations(); startLoop(); };
+      img.onerror = () => { randomStars(); setupCanvas(); buildConstellations(); startLoop(); };
+
+      function startLoop() {
+        // Fade out "CALIBRATING TELESCOPES..." briefly into the drawing
+        setTimeout(() => {
+          plLoading.style.transition = 'opacity 0.8s ease-out';
+          plLoading.style.opacity = '0';
+          setTimeout(() => { plLoading.style.display = 'none'; }, 850);
+        }, 2500);
+        requestAnimationFrame(loop);
+      }
+
+      function extractStars() {
+        stars = [];
+        const off = document.createElement('canvas');
+        off.width = img.naturalWidth || innerWidth; off.height = img.naturalHeight || innerHeight;
+        const oc = off.getContext('2d', { willReadFrequently: true });
+        try {
+          oc.drawImage(img, 0, 0);
+          const d = oc.getImageData(0, 0, off.width, off.height).data;
+          for (let y = 0; y < off.height; y += 5) for (let x = 0; x < off.width; x += 5) {
+            const i = (y * off.width + x) * 4;
+            if ((d[i] + d[i + 1] + d[i + 2]) / 3 > BRIGHT_THRESH) {
+              let ok = true;
+              for (const s of stars) if (Math.hypot(s.nx * off.width - x, s.ny * off.height - y) < MIN_STAR_DIST) { ok = false; break; }
+              if (ok) stars.push({ nx: x / off.width, ny: y / off.height, size: Math.random() * 1.5 + 0.5 });
+            }
+          }
+        } catch (e) { }
+        for (let i = 0; i < 1200; i++) stars.push({ nx: Math.random(), ny: Math.random(), size: Math.random() * 1.2 + 0.3 });
+        if (stars.length < 50) randomStars();
+      }
+
+      function randomStars() {
+        stars = [];
+        for (let i = 0; i < 2000; i++) stars.push({ nx: Math.random(), ny: Math.random(), size: Math.random() * 1.5 + 0.5 });
+      }
+
+      function computePolar() {
+        const cx = canvas.width * 0.6, cy = canvas.height * 0.5;
+        stars.forEach(s => {
+          const sx = s.nx * canvas.width, sy = s.ny * canvas.height;
+          s.radius = Math.hypot(sx - cx, sy - cy);
+          s.baseAngle = Math.atan2(sy - cy, sx - cx);
+          if (!s.trailColor) {
+            const h = canvas.height * 0.55;
+            if (sy > h) {
+              const dep = Math.min(1, (sy - h) / (canvas.height - h));
+              const hue = dep < 0.5 ? 260 + dep * 140 : 330 + (dep - 0.5) * 100;
+              s.trailColor = `hsla(${hue % 360},85%,${55 + Math.random() * 25}%,0.55)`;
+            } else {
+              let hue = 210, sat = 80, light = 70; const r = Math.random();
+              if (r > 0.8) { hue = 40; sat = 40; light = 80; } else if (r > 0.5) { hue = 220; sat = 100; light = 90; } else if (r > 0.3) { sat = 0; light = 100; }
+              s.trailColor = `hsla(${hue},${sat}%,${light}%,0.45)`;
+            }
+          }
+        });
+      }
+
+      function buildConstellations() {
+        connections = [];
+        let unvisited = new Set(stars.map((_, i) => i)), tips = [];
+        for (let i = 0; i < NUM_CONST; i++) {
+          if (!unvisited.size) break;
+          const arr = Array.from(unvisited), idx = arr[Math.floor(Math.random() * arr.length)];
+          unvisited.delete(idx); tips.push(idx);
+        }
+        let step = 0;
+        while (unvisited.size && tips.length && step < MAX_STEPS) {
+          const next = [];
+          for (const ci of tips) {
+            if (!unvisited.size) break;
+            const cs = stars[ci]; let ni = -1, md = Infinity;
+            for (const ui of unvisited) {
+              const ts = stars[ui], dist = Math.hypot((ts.nx - cs.nx) * innerWidth, (ts.ny - cs.ny) * innerHeight);
+              if (dist < md && dist < MAX_CONN_DIST) { md = dist; ni = ui; }
+            }
+            if (ni !== -1) { unvisited.delete(ni); connections.push({ from: ci, to: ni, step }); next.push(ni); }
+          }
+          tips = next; step++;
+        }
+        maxStep = step - 1;
+      }
+
+      function initDeepSpace() {
+        bgStars = [];
+        for (let i = 0; i < 450; i++) {
+          const r = Math.random();
+          bgStars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 1.6 + 0.2, speed: Math.random() * 0.25 + 0.04, brightness: Math.random() * 0.7 + 0.25, color: r > 0.9 ? '#00f3ff' : r > 0.8 ? '#b026ff' : r > 0.7 ? '#a855f7' : '#ffffff' });
+        }
+      }
+
+      function revealPage() {
+        canvas.classList.add('color-active');
+        document.body.style.cursor = 'auto';
+        setTimeout(() => {
+          // Fade out loading text
+          plLoading.style.transition = 'opacity 0.5s ease-out';
+          plLoading.style.opacity = '0';
+          setTimeout(() => {
+            plLoading.style.display = 'none';
+            plEntering.classList.add('visible');
+            setTimeout(() => {
+              // Fade out entering text
+              plEntering.style.transition = 'opacity 0.8s ease-out';
+              plEntering.style.opacity = '0';
+              setTimeout(() => {
+                // Start overlay smooth fade-out (2s CSS transition)
+                overlay.classList.add('hidden');
+                // Drop canvas z-index AFTER overlay is fully gone
+                // Use CSS transition on opacity instead of abrupt z-index jump
+                setTimeout(() => {
+                  canvas.style.zIndex = '0';
+                  initScrollFade();
+                }, 2100);
+              }, 700);
+            }, 2200);
+          }, 500);
+        }, 400);
+      }
+
+      window.skipPreloader = function () {
+        phase = 'deep_space'; initDeepSpace();
+        canvas.classList.add('color-active');
+        overlay.classList.add('hidden');
+        document.body.style.cursor = 'auto';
+        siteRevealed = true;
+        // Drop canvas after overlay fade completes
+        setTimeout(() => { canvas.style.zIndex = '0'; initScrollFade(); }, 2100);
+      };
+
+      // Fade canvas in/out based on scroll position relative to hero section
+      function initScrollFade() {
+        const heroHeight = window.innerHeight; // first viewport = hero
+        function onScroll() {
+          const scrollY = window.scrollY;
+          // Start fading at 20% into the hero, fully hidden at 80%
+          const fadeStart = heroHeight * 0.2;
+          const fadeEnd   = heroHeight * 0.8;
+          if (scrollY <= fadeStart) {
+            canvas.classList.remove('scroll-hidden');
+            canvas.style.opacity = '';
+          } else if (scrollY >= fadeEnd) {
+            canvas.classList.add('scroll-hidden');
+          } else {
+            canvas.classList.remove('scroll-hidden');
+            const progress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
+            canvas.style.opacity = String(1 - progress);
+          }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // run once in case page is already scrolled
+      }
+
+      function loop() {
+        const cx = canvas.width * 0.6, cy = canvas.height * 0.5;
+
+        if (phase === 'drawing' || phase === 'waiting') {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          const pos = stars.map(s => ({ x: cx + s.radius * Math.cos(s.baseAngle), y: cy + s.radius * Math.sin(s.baseAngle), size: s.size }));
+          ctx.fillStyle = 'rgba(255,255,255,0.2)';
+          pos.forEach(p => { ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill(); });
+          ctx.lineCap = 'round'; ctx.shadowBlur = 6; ctx.shadowColor = 'rgba(255,255,255,0.8)';
+          connections.forEach(c => {
+            const p1 = pos[c.from], p2 = pos[c.to];
+            if (phase === 'waiting' || c.step < currentStep) {
+              ctx.beginPath(); ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 1.2;
+              ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+              ctx.beginPath(); ctx.fillStyle = 'rgba(255,255,255,0.9)';
+              ctx.arc(p1.x, p1.y, p1.size + 0.5, 0, Math.PI * 2); ctx.arc(p2.x, p2.y, p2.size + 0.5, 0, Math.PI * 2); ctx.fill();
+            } else if (phase === 'drawing' && c.step === currentStep) {
+              const ex = p1.x + (p2.x - p1.x) * stepProg, ey = p1.y + (p2.y - p1.y) * stepProg;
+              ctx.beginPath(); ctx.strokeStyle = 'rgba(255,255,255,0.8)'; ctx.lineWidth = 1.5;
+              ctx.moveTo(p1.x, p1.y); ctx.lineTo(ex, ey); ctx.stroke();
+              ctx.beginPath(); ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.arc(p1.x, p1.y, p1.size + 0.5, 0, Math.PI * 2); ctx.fill();
+              ctx.beginPath(); ctx.fillStyle = 'rgba(255,255,255,1)'; ctx.arc(ex, ey, 1.5, 0, Math.PI * 2); ctx.fill();
+            }
+          });
+          if (phase === 'drawing') {
+            stepProg += 0.015; // slower draw → more time on screen
+            if (stepProg >= 1) { stepProg = 0; currentStep++; }
+            if (currentStep > maxStep) {
+              phase = 'waiting';
+              // Timeline after constellations finish:
+              // t+0s  → boxes appear immediately (stagger within ~900ms)
+              // t+2s  → boxes fade out smoothly (0.5s)
+              // t+2.5s→ hyperspace warp begins
+              if (typeof window.showInfoBoxes === 'function') window.showInfoBoxes();
+              setTimeout(() => {
+                if (typeof window.hideInfoBoxes === 'function') window.hideInfoBoxes();
+              }, 2000);
+              setTimeout(() => {
+                phase = 'hyperspace'; warpMult = 0.05; warpRot = 0;
+                stars.forEach(s => { s.warpDist = 0; s.warpVel = Math.random() * 4 + 2; });
+              }, 2500);
+            }
+          }
+
+        } else if (phase === 'hyperspace') {
+          ctx.fillStyle = 'rgba(0,4,10,0.4)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+          warpMult *= 1.08; warpRot += 0.015 * warpMult;
+          let onScreen = 0; ctx.lineCap = 'round';
+          stars.forEach(s => {
+            s.warpDist += s.warpVel * warpMult;
+            const ang = s.baseAngle + warpRot, rad = s.radius + s.warpDist;
+            const ox = cx + Math.cos(ang) * rad, oy = cy + Math.sin(ang) * rad;
+            const tRad = Math.max(0, rad - s.warpVel * warpMult * 2.5), tAng = ang - 0.015 * warpMult;
+            const tx = cx + Math.cos(tAng) * tRad, ty = cy + Math.sin(tAng) * tRad;
+            if (ox > -200 && ox < canvas.width + 200 && oy > -200 && oy < canvas.height + 200) {
+              onScreen++;
+              ctx.beginPath(); ctx.strokeStyle = s.trailColor || '#fff'; ctx.lineWidth = s.size * 1.5;
+              ctx.moveTo(tx, ty); ctx.lineTo(ox, oy); ctx.stroke();
+            }
+          });
+          if (onScreen === 0 && warpMult > 10) {
+            phase = 'deep_space'; initDeepSpace();
+            if (!siteRevealed) { siteRevealed = true; revealPage(); }
+          }
+
+        } else if (phase === 'deep_space') {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          bgStars.forEach(s => {
+            s.y -= s.speed; s.x -= s.speed * 0.18;
+            if (s.y < 0) { s.y = canvas.height; s.x = Math.random() * canvas.width; } if (s.x < 0) s.x = canvas.width;
+            ctx.globalAlpha = s.brightness; ctx.fillStyle = s.color;
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2); ctx.fill();
+          });
+          ctx.globalAlpha = 1;
+          if (Math.random() < 0.018) meteors.push({ x: Math.random() * canvas.width * 1.2, y: -50, length: Math.random() * 110 + 50, speed: Math.random() * 11 + 9, thickness: Math.random() * 2 + 0.8, angle: Math.PI / 4 + (Math.random() * 0.12 - 0.06), colorRGB: Math.random() > 0.6 ? '255,255,255' : Math.random() > 0.5 ? '0,243,255' : '168,85,247' });
+          for (let i = meteors.length - 1; i >= 0; i--) {
+            const m = meteors[i]; m.x -= Math.cos(m.angle) * m.speed; m.y += Math.sin(m.angle) * m.speed;
+            const g = ctx.createLinearGradient(m.x, m.y, m.x + Math.cos(m.angle) * m.length, m.y - Math.sin(m.angle) * m.length);
+            g.addColorStop(0, `rgba(${m.colorRGB},1)`); g.addColorStop(1, `rgba(${m.colorRGB},0)`);
+            ctx.beginPath(); ctx.strokeStyle = g; ctx.lineWidth = m.thickness; ctx.lineCap = 'round';
+            ctx.moveTo(m.x, m.y); ctx.lineTo(m.x + Math.cos(m.angle) * m.length, m.y - Math.sin(m.angle) * m.length); ctx.stroke();
+            if (m.y > canvas.height + 200 || m.x < -200) meteors.splice(i, 1);
+          }
+        }
+        requestAnimationFrame(loop);
+      }
+
+      window.addEventListener('mousemove', e => {
+        document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
+        document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
+      });
+    })();
+  </script>
+
 </body>
 
 </html>
