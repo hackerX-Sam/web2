@@ -14,7 +14,7 @@ body {
 }
 
 /* Headings */
-h1 {
+h1, .h1-div-style {
   font-size: 2.5rem;
   /* 40px */
   font-weight: 600;
@@ -23,6 +23,7 @@ h1 {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 1.5rem 0;
+  display: block;
 }
 
 h2 {
@@ -33,7 +34,7 @@ h2 {
   /* White */
 }
 
-h3 {
+h3, .h3-div-style {
   font-size: 1.25rem;
   /* 20px */
   font-weight: 500;
