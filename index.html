@@ -26,16 +26,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            max-width: 100vw;
-            overflow-x: hidden;
-        }
-
         .layered-header {
             position: relative;
             display: flex;
@@ -53,16 +43,11 @@
             position: absolute;
             font-family: 'League Spartan', sans-serif;
             font-weight: 900;
-            font-size: clamp(2rem, 10vw, 8rem);
+            font-size: clamp(3rem, 14vw, 12rem);
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.1);
             letter-spacing: 0.1em;
-            word-break: break-all;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            white-space: nowrap;
             pointer-events: none;
             z-index: 1;
             line-height: 1;
@@ -76,7 +61,7 @@
             position: relative;
             font-family: 'League Spartan', sans-serif;
             font-weight: 800;
-            font-size: clamp(1.5rem, 6vw, 3.8rem);
+            font-size: clamp(2rem, 6vw, 3.8rem);
             text-transform: uppercase;
             color: #fff;
             letter-spacing: 0.15em;
@@ -745,7 +730,7 @@
     </style>
 </head>
 
-<body class="__className_36bd41 bg-[#030014] overflow-x-hidden relative">
+<body class="__className_36bd41 bg-[#030014] overflow-y-scroll overflow-x-hidden relative">
     <!-- Deep-Space Background Canvas -->
     <canvas id="bgCanvas"></canvas>
     <!-- Preloader Overlay (sits above all page content) -->
@@ -781,7 +766,10 @@
     </div>
     <section id="gallery"
         class="flex flex-col items-center justify-center py-32 z-[100] relative overflow-hidden bg-transparent">
-        <h1 class="header-fg-text">PAST MEMORIES</h1>
+        <div class="layered-header z-[100]">
+            <span class="header-bg-text">MEMORIES</span>
+            <div class="header-fg-text h1-div-style">PAST MEMORIES</div>
+        </div>
         <div
             class="flex flex-col md:flex-row items-center justify-center gap-32 w-full max-w-[1400px] px-10 relative z-[100] mt-20 gallery-track">
             <div
@@ -1028,7 +1016,7 @@
     <script>
         self.__next_f.push([
             1,
-            '0:[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e62aa9e228ffe7b3.css","precedence":"next","crossOrigin":"$undefined"}]],["$","$L4",null,{"buildId":"x5Y1h9P7rY6nA8wFZVfQk","assetPrefix":"","initialCanonicalUrl":"/","initialTree":["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"initialSeedData":["",{"children":["__PAGE__",{},[["$L5",["$","main",null,{"className":"h-full w-full","children":["$","div",null,{"className":"flex flex-col gap-20","children":[["$","div",null,{"className":"relative flex flex-col h-full w-full","id":"about-me","children":[["$","video",null,{"autoPlay":true,"muted":true,"loop":true,"className":"rotate-180 absolute top-[-340px]  h-full w-full left-0 z-[1] object-cover ","children":["$","source",null,{"src":"/blackhole.webm","type":"video/webm","style":{"filter":"hue-rotate(260deg)"}}]}],["$","$L6",null,{}]]}],["$","section",null,{"id":"skills","className":"flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-80 py-20","style":{"transform":"scale(0.9"},"children":[["$","$L7",null,{}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/html.png","width":80,"height":80,"index":0}],["$","$L8","1",{"src":"/css.png","width":80,"height":80,"index":1}],["$","$L8","2",{"src":"/js.png","width":65,"height":65,"index":2}],["$","$L8","3",{"src":"/tailwind.png","width":80,"height":80,"index":3}],["$","$L8","4",{"src":"/react.png","width":80,"height":80,"index":4}],["$","$L8","5",{"src":"/redux.png","width":80,"height":80,"index":5}],["$","$L8","6",{"src":"/reactquery.png","width":80,"height":80,"index":6}],["$","$L8","7",{"src":"/ts.png","width":80,"height":80,"index":7}],["$","$L8","8",{"src":"/next.png","width":80,"height":80,"index":8}],["$","$L8","9",{"src":"/framer.png","width":80,"height":80,"index":9}],["$","$L8","10",{"src":"/stripe.webp","width":80,"height":80,"index":10}],["$","$L8","11",{"src":"/node-js.png","width":80,"height":80,"index":11}],["$","$L8","12",{"src":"/mongodb.png","width":40,"height":40,"index":12}]]}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/python.webp","width":100,"height":100,"index":0}],["$","$L8","1",{"src":"/ruby.webp","width":80,"height":80,"index":1}],["$","$L8","2",{"src":"/swift.webp","width":65,"height":65,"index":2}],["$","$L8","3",{"src":"/java.webp","width":80,"height":80,"index":3}],["$","$L8","4",{"src":"/mui.png","width":80,"height":80,"index":4}],["$","$L8","5",{"src":"/rust.webp","width":80,"height":80,"index":5}],["$","$L8","6",{"src":"/kotlin.webp","width":80,"height":80,"index":6}],["$","$L8","7",{"src":"/dart.webp","width":80,"height":80,"index":7}],["$","$L8","8",{"src":"/flutter.webp","width":50,"height":40,"index":8}],["$","$L8","9",{"src":"/net.webp","width":80,"height":80,"index":9}]]}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/cs.webp","width":80,"height":80,"index":0}],["$","$L8","1",{"src":"/perl.webp","width":70,"height":70,"index":1}],["$","$L8","2",{"src":"/scala.webp","width":70,"height":70,"index":2}],["$","$L8","3",{"src":"/Firebase.png","width":55,"height":55,"index":3}],["$","$L8","4",{"src":"/postger.png","width":70,"height":70,"index":4}],["$","$L8","5",{"src":"/mysql.png","width":70,"height":70,"index":5}],["$","$L8","6",{"src":"/prisma.webp","width":70,"height":70,"index":6}],["$","$L8","7",{"src":"/graphql.png","width":80,"height":80,"index":7}]]}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/github.webp","width":70,"height":70,"index":0}],["$","$L8","1",{"src":"/tauri.svg","width":70,"height":70,"index":1}],["$","$L8","2",{"src":"/docker.webp","width":70,"height":70,"index":2}],["$","$L8","3",{"src":"/figma.png","width":50,"height":50,"index":3}]]}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/go.png","width":60,"height":60,"index":0}]]}],["$","div",null,{"className":"w-full h-full absolute","children":["$","div",null,{"className":"w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover","children":["$","video",null,{"className":"w-full h-auto","preload":"false","playsInline":true,"loop":true,"muted":true,"autoPlay":true,"src":"/cards-video.webm"}]}]}]]}],["$","section",null,{"id":"about-event","className":"flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden mb-64 my-20 px-1","children":[["$","h1",null,{"className":"text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20","children":"About the Event"}],["$","div",null,{"className":"w-full h-full md:w-2/3 lg:w-1/2 z-[500] px-1 bg-slate-700/70 flex min-h-[24rem] rounded-lg","children":[["$","div",null,{"className":"w-1/2 p-1 flex flex-col font-bold","children":[["$","div",null,{"children":[["$","h2",null,{"className":"text-white text-center py-2 md:py-3 lg:py-4","children":"Description"}],["$","p",null,{"className":"text-gray-500 text-xs md:text-sm py-1","children":[["$","span",null,{"className":"font-bold underline underline-offset-2 md:underline-offset-[3px] decoration-1 md:decoration-2 text-gray-400 italic","children":"Hack Vortex"}]," ","is a large hybrid hackathon being conducted by GeekRoom JIMS, Rohini, Sector 5. The first round would be conducted through an online meeting, where participants would have to present their projects to their appointed mentors.",["$","br",null,{}],"This would then be followed by the main \u0026 final judgement round, which would be conducted offline in"," ",["$","span",null,{"className":"text-gray-400 underline underline-offset-2","children":"JIMS Rohini, Sector 5, New Delhi."}]]}]]}],["$","div",null,{"className":"flex-grow flex items-end","children":["$","p",null,{"className":"text-gray-400 text-xs md:text-sm py-1","children":["For any queries, feel free to"," ",["$","a",null,{"href":"https://mail.google.com/mail/?view=cm\u0026fs=1\u0026to=geekroomjimsrohini@gmail.com","rel":"noreferrer noopener","target":"_blank","className":"text-blue-400","children":"contact us"}]," ","anytime."]}]}]]}],["$","div",null,{"className":"w-1/2 p-1 flex flex-col","children":[["$","div",null,{"children":["$","h2",null,{"className":"text-white text-center py-2 md:py-3 lg:py-4 font-bold","children":"Hackathon Dates"}]}],["$","div",null,{"className":"flex-grow grid grid-cols-1 grid-rows-[1fr_auto_1fr] lg:grid-rows-1 lg:grid-cols-[1fr_auto_1fr] gap-4 place-items-center","children":[["$","div",null,{"className":"group flex flex-col items-center gap-2 p-4 rounded-2xl border border-transparent hover:border-purple-500/50 transition-all duration-300 hover:scale-110 hover:bg-white/5 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] cursor-pointer","children":[["$","h3",null,{"className":"text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 tracking-widest font-bold text-base uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]","children":"Online Round"}],["$","p",null,{"className":"text-sm text-gray-300 font-medium transition-colors duration-300 group-hover:text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]","children":"TBD (After 15 April)"}]]}],["$","div",null,{"className":"w-[3px] h-20 rotate-90 md:rotate-0 bg-gradient-to-b from-purple-500/20 via-cyan-400 to-purple-500/20 shadow-[0_0_15px_rgba(34,211,238,0.5)] rounded-full transition-all duration-500 group-hover:scale-y-110 group-hover:shadow-[0_0_25px_rgba(34,211,238,0.8)]"}],["$","div",null,{"className":"group flex flex-col items-center gap-2 p-4 rounded-2xl border border-transparent hover:border-purple-500/50 transition-all duration-300 hover:scale-110 hover:bg-white/5 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] cursor-pointer","children":[["$","h3",null,{"className":"text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 tracking-widest font-bold text-base uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]","children":"Offline Round"}],["$","p",null,{"className":"text-sm text-gray-300 font-medium transition-colors duration-300 group-hover:text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]","children":"TBD (After 15 April)"}]]}]]}]]}]]}]]}],["$","$L9",null,{}],["$","$La",null,{}],["$","div",null,{"className":"flex flex-col items-center justify-center py-20","id":"why-us","children":[["$","h1",null,{"className":"text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20","children":"Why Join Us?"}],["$","div",null,{"className":"h-full w-full grid grid-cols-1 md:grid-cols-3 gap-10 px-10","children":[["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/open-innovation.webp","alt":"Open Innovation","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"Open Innovation"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"While we\'ve some themes set in place, we also believe in allowing developers complete freedom in what they develop."}]]}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/trophies.webp","alt":"1,00,000+ Prize Pool","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"1,00,000+ Prize Pool"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"Our still-increasing prize pool ensures deserving coders get enough cool rewards :)"}]]}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/goodies.webp","alt":"Goodies and Swags","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"Goodies and Swags"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"We\'ve got you covered in the swags department as well. We have enough of those for *everyone* in the offline round."}]]}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/foods.webp","alt":"Free Food \u0026 Beverages","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"Free Food \u0026 Beverages"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"Free food \u0026 beverages is always a good additional addon, so we\'re providing all that for you!"}]]}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/cash.webp","alt":"10,000+ Cash Prizes","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"10,000+ Cash Prizes"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"Free food \u0026 beverages is always a good additional addon, so we\'re providing all that for you!"}]]}]]}],["$","div",null,{"className":"flex justify-center items-center z-[100]","children":["$","a",null,{"href":"https://linktr.ee/GeekRoom_Jims","target":"_blank","rel":"noreferrer noopener","className":"follow-btn md:w-1/2 z-10 text-center","children":[["$","span",null,{"children":"Follow Us"}],["$","div",null,{"className":"liquid"}]]}]}]]}]]}],["$","div",null,{"className":"flex flex-col items-center justify-center py-20 z-[100]","id":"judges","children":[["$","h1",null,{"className":"text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20","children":"Our Judges"}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-5 px-4","children":[["$","div","0",{"children":["$","div",null,{"className":"team__item set-bg","style":{"backgroundImage":"url(https://ik.imagekit.io/logicsync/nk.jpg)"},"children":["$","div",null,{"className":"team__text group","children":[["$","div",null,{"className":"team__title bg-gradient-to-b from-transparent to-black group-hover:to-transparent","children":[["$","h4",null,{"children":"Disha Luthra"}],["$","span",null,{"children":"Project Management @ Google"}]]}],["$","p",null,{"children":"Meet our judge, Disha Luthra, who is an ex-software engineer, and current Product Management @ Google, and has been a judge for multiple hackathons."}],["$","div",null,{"className":"team__social","children":["$","a",null,{"href":"https://www.linkedin.com/in/disha-luthra/","target":"_blank","rel":"noopener noreferrer","children":["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]}]}]]}]}]}],["$","div","1",{"children":["$","div",null,{"className":"team__item set-bg","style":{"backgroundImage":"url(https://ik.imagekit.io/logicsync/nk.jpg)"},"children":["$","div",null,{"className":"team__text group","children":[["$","div",null,{"className":"team__title bg-gradient-to-b from-transparent to-black group-hover:to-transparent","children":[["$","h4",null,{"children":"Mohammad Mudassir"}],["$","span",null,{"children":"Support Engineer @ Algorand Foundation"}]]}],["$","p",null,{"children":"Meet our judge, Mohammad Mudassir, who is a Support Engineer @ Algorand Foundation, whose expertise shines in the field of blockchain."}],["$","div",null,{"className":"team__social","children":["$","a",null,{"href":"https://www.linkedin.com/in/mohammad-mudassir-b788a41ab/","target":"_blank","rel":"noopener noreferrer","children":["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]}]}]]}]}]}],["$","div","2",{"children":["$","div",null,{"className":"team__item set-bg","style":{"backgroundImage":"url(https://ik.imagekit.io/logicsync/nk.jpg)"},"children":["$","div",null,{"className":"team__text group","children":[["$","div",null,{"className":"team__title bg-gradient-to-b from-transparent to-black group-hover:to-transparent","children":[["$","h4",null,{"children":"Piyush Khurana"}],["$","span",null,{"children":"SDE-1 @ Mobikwik"}]]}],["$","p",null,{"children":"Meet our judge, Piyush Khurana, who is an SDE-1 @ Mobikwik, and brings his knowledge of FinTech and software solutions, and a high experience of judging at previous events."}],["$","div",null,{"className":"team__social","children":["$","a",null,{"href":"https://www.linkedin.com/in/piyush-khurana-dev/","target":"_blank","rel":"noopener noreferrer","children":["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]}]}]]}]}]}],["$","div","3",{"children":["$","div",null,{"className":"team__item set-bg","style":{"backgroundImage":"url(https://ik.imagekit.io/logicsync/nk.jpg)"},"children":["$","div",null,{"className":"team__text group","children":[["$","div",null,{"className":"team__title bg-gradient-to-b from-transparent to-black group-hover:to-transparent","children":[["$","h4",null,{"children":"Shivam Goyal"}],["$","span",null,{"children":"SDE-2 @ Junglee Games"}]]}],["$","p",null,{"children":"Meet our judge, Shivam Goyal, who is an SDE-2 @ JungleeGames, and brings his rich experience of accessible software solutions and judging."}],["$","div",null,{"className":"team__social","children":["$","a",null,{"href":"https://www.linkedin.com/in/shivamgoyall/","target":"_blank","rel":"noopener noreferrer","children":["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]}]}]]}]}]}]]}]]}],["$","section",null,{"className":"flex flex-col items-center justify-center py-20","id":"sponsors","children":[["$","h1",null,{"className":"text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20","children":"Our Sponsors"}],["$","div",null,{"className":"h-full w-full grid grid-cols-1 md:grid-cols-3 gap-10 px-10 place-items-center","children":[["$","div",null,{"className":"card w-[16rem] h-[16rem] max-w-[20rem] max-h-[20rem] lg:max-w-none lg:max-h-none lg:w-[30rem] lg:h-[30rem] z-[200]","children":["$","div",null,{"className":"content","children":[["$","div",null,{"className":"back","children":["$","div",null,{"className":"back-content","children":[["$","$Lb",null,{"src":"/sponsors/sponsor-img.webp","width":160,"height":160,"alt":"Sponsors"}],["$","strong",null,{"className":"text-gray-500 text-xl","children":"Silver Tier"}]]}]}],["$","div",null,{"className":"front","children":[["$","div",null,{"className":"img","children":[["$","div",null,{"className":"circle"}],["$","div",null,{"className":"circle","id":"right"}],["$","div",null,{"className":"circle","id":"bottom"}]]}],["$","div",null,{"className":"front-content","children":[["$","small",null,{"className":"badge","children":"Silver Tier"}],["$","ul",null,{"className":"grid grid-cols-2 place-items-center","children":[["$","li","0",{"className":"flex gap-x-1 py-1 hover:scale-125 transition-all duration-300 ease-in-out","children":["$","$Lb",null,{"src":"/sponsors/interview-buddy.png","width":80,"height":80,"alt":"Interview Buddy","className":"w-[5rem] h-[5rem] md:w-[6rem] lg:w-[8rem] lg:h-[7rem]"}]}]]}]]}]]}]]}]}],["$","div",null,{"className":"card w-[16rem] h-[16rem] max-w-[20rem] max-h-[20rem] lg:max-w-none lg:max-h-none lg:w-[30rem] lg:h-[30rem] z-[200]","children":["$","div",null,{"className":"content","children":[["$","div",null,{"className":"back","children":["$","div",null,{"className":"back-content","children":[["$","$Lb",null,{"src":"/sponsors/sponsor-img.webp","width":160,"height":160,"alt":"Sponsors"}],["$","strong",null,{"className":"text-yellow-300 text-xl","children":"Gold Tier"}]]}]}],["$","div",null,{"className":"front","children":[["$","div",null,{"className":"img","children":[["$","div",null,{"className":"circle"}],["$","div",null,{"className":"circle","id":"right"}],["$","div",null,{"className":"circle","id":"bottom"}]]}],["$","div",null,{"className":"front-content","children":[["$","small",null,{"className":"badge","children":"Gold Tier"}],["$","ul",null,{"className":"grid grid-cols-2 place-items-center","children":[["$","li","0",{"className":"flex gap-x-1 py-1 hover:scale-125 transition-all duration-300 ease-in-out","children":["$","$Lb",null,{"src":"/sponsors/hackquest.jpg","width":80,"height":80,"alt":"Devfolio","className":"w-[5rem] h-[5rem] md:w-[6rem] lg:w-[8rem] lg:h-[7rem]"}]}]]}]]}]]}]]}]}],["$","div",null,{"className":"card w-[16rem] h-[16rem] max-w-[20rem] max-h-[20rem] lg:max-w-none lg:max-h-none lg:w-[30rem] lg:h-[30rem] z-[200]","children":["$","div",null,{"className":"content","children":[["$","div",null,{"className":"back","children":["$","div",null,{"className":"back-content","children":[["$","$Lb",null,{"src":"/sponsors/sponsor-img.webp","width":160,"height":160,"alt":"Sponsors"}],["$","strong",null,{"className":"text-red-800 text-xl","children":"Bronze Tier"}]]}]}],["$","div",null,{"className":"front","children":[["$","div",null,{"className":"img","children":[["$","div",null,{"className":"circle"}],["$","div",null,{"className":"circle","id":"right"}],["$","div",null,{"className":"circle","id":"bottom"}]]}],["$","div",null,{"className":"front-content","children":[["$","small",null,{"className":"badge","children":"Bronze Tier"}],["$","ul",null,{"className":"grid grid-cols-2 place-items-center","children":[["$","li","0",{"className":"flex gap-x-1 py-1 hover:scale-125 transition-all duration-300 ease-in-out","children":["$","$Lb",null,{"src":"/sponsors/lazer-crazer.png","width":80,"height":80,"alt":"Lazer Crazer","className":"w-[5rem] h-[5rem] md:w-[6rem] lg:w-[8rem] lg:h-[7rem]"}]}],["$","li","1",{"className":"flex gap-x-1 py-1 hover:scale-125 transition-all duration-300 ease-in-out","children":["$","$Lb",null,{"src":"/sponsors/niia-512.png","width":80,"height":80,"alt":"Niia 512","className":"w-[5rem] h-[5rem] md:w-[6rem] lg:w-[8rem] lg:h-[7rem]"}]}]]}]]}]]}]]}]}]]}]]}],["$","$Lc",null,{}]]}]}]],null],null]},[["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__className_36bd41 bg-[#030014] overflow-y-scroll overflow-x-hidden","children":[["$","$Ld",null,{}],["$","div",null,{"className":"w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-[1000] md:px-10","children":["$","div",null,{"className":"w-full h-full flex flex-row items-center justify-between m-auto md:px-[10px]","children":[["$","a",null,{"href":"#about-me","className":"h-auto w-auto flex flex-row items-center","children":[["$","$Lb",null,{"src":"/hack-logo.png","alt":"logo","width":70,"height":70,"className":"cursor-pointer hover:animate-slowspin"}],["$","span",null,{"className":"font-bold ml-[10px] hidden md:block text-gray-300","children":"Hack Vortex"}]]}],["$","div",null,{"className":"w-[500px] h-full flex flex-row items-center justify-between md:mr-20","children":["$","div",null,{"className":"flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200 text-[0.65rem] md:text-xs lg:text-sm","children":[["$","a",null,{"href":"#why-us","className":"cursor-pointer","children":"Why Us"}],["$","a",null,{"href":"#judges","className":"cursor-pointer","children":"Judges"}],["$","a",null,{"href":"#sponsors","className":"cursor-pointer","children":"Sponsors"}]]}]}],["$","div",null,{"className":"flex flex-row gap-5","children":["$","$Lb",null,{"src":"/geekroomjimslogo.png","width":50,"height":50,"alt":"Logo"}]}]]}]}],["$","$Le",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lf",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\\"Segoe UI\\",Roboto,Helvetica,Arial,sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3ccace02cc1e1582.css","precedence":"next","crossOrigin":"$undefined"}]]}],["$","div",null,{"className":"w-full h-full bg-transparent text-gray-200 shadow-2xl shadow-white p-[15px] border-t-2 border-t-white/30","children":["$","div",null,{"className":"w-full flex flex-col items-center justify-center m-auto","children":[["$","div",null,{"className":"w-full h-full grid grid-cols-1 md:grid-cols-3 z-[500]","children":[["$","div",null,{"className":"min-w-[200px] h-auto flex flex-col items-center justify-start","children":["$","div",null,{"children":[["$","div",null,{"className":"font-bold text-[16px]","children":"Community"}],["$","a",null,{"href":"https://www.instagram.com/geekroom_jims/","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","span",null,{"className":"text-[15px] ml-[6px]","children":"Instagram"}]]}],["$","a",null,{"href":"https://www.linkedin.com/company/geekroom-jims","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","span",null,{"className":"text-[15px] ml-[6px]","children":"Linkedin"}]]}]]}]}],["$","div",null,{"className":"min-w-[200px] h-auto flex flex-col items-center","children":[["$","div",null,{"className":"font-bold text-[16px]","children":"Past Hackathons"}],["$","a",null,{"href":"https://codekshetra.vercel.app/","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":["$","span",null,{"className":"text-[15px] ml-[6px]","children":"Code Kshetra"}]}]]}],["$","div",null,{"className":"min-w-[200px] h-auto flex flex-col items-center justify-start","children":[["$","div",null,{"className":"font-bold text-[16px]","children":"Explore More"}],["$","a",null,{"href":"https://chat.whatsapp.com/KGvAnrHbwyz1rhJ7hXzvLm","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":["$","span",null,{"className":"text-[15px] ml-[6px]","children":"Join Us"}]}],["$","a",null,{"href":"https://mail.google.com/mail/?view=cm\u0026fs=1\u0026to=geekroomjimsrohini@gmail.com","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":["$","span",null,{"className":"text-[15px] ml-[6px] text-blue-200","children":"geekroomjimsrohini@gmail.com"}]}]]}]]}],["$","div",null,{"className":"mb-[20px] text-[15px] text-center","children":"© Geek Room JIMS, Rohini 2024 Inc. All rights reserved"}]]}]}]]}]}],null],null],"couldBeIntercepted":false,"initialHead":[null,"$L10"],"globalErrorComponent":"$11","missingSlots":"$W12"}]]\n',
+            '0:[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e62aa9e228ffe7b3.css","precedence":"next","crossOrigin":"$undefined"}]],["$","$L4",null,{"buildId":"x5Y1h9P7rY6nA8wFZVfQk","assetPrefix":"","initialCanonicalUrl":"/","initialTree":["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"initialSeedData":["",{"children":["__PAGE__",{},[["$L5",["$","main",null,{"className":"h-full w-full","children":["$","div",null,{"className":"flex flex-col gap-20","children":[["$","div",null,{"className":"relative flex flex-col h-full w-full","id":"about-me","children":[["$","video",null,{"autoPlay":true,"muted":true,"loop":true,"className":"rotate-180 absolute top-[-340px]  h-full w-full left-0 z-[1] object-cover ","children":["$","source",null,{"src":"/blackhole.webm","type":"video/webm","style":{"filter":"hue-rotate(260deg)"}}]}],["$","$L6",null,{}]]}],["$","section",null,{"id":"skills","className":"flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-80 py-20","style":{"transform":"scale(0.9"},"children":[["$","$L7",null,{}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/html.png","width":80,"height":80,"index":0}],["$","$L8","1",{"src":"/css.png","width":80,"height":80,"index":1}],["$","$L8","2",{"src":"/js.png","width":65,"height":65,"index":2}],["$","$L8","3",{"src":"/tailwind.png","width":80,"height":80,"index":3}],["$","$L8","4",{"src":"/react.png","width":80,"height":80,"index":4}],["$","$L8","5",{"src":"/redux.png","width":80,"height":80,"index":5}],["$","$L8","6",{"src":"/reactquery.png","width":80,"height":80,"index":6}],["$","$L8","7",{"src":"/ts.png","width":80,"height":80,"index":7}],["$","$L8","8",{"src":"/next.png","width":80,"height":80,"index":8}],["$","$L8","9",{"src":"/framer.png","width":80,"height":80,"index":9}],["$","$L8","10",{"src":"/stripe.webp","width":80,"height":80,"index":10}],["$","$L8","11",{"src":"/node-js.png","width":80,"height":80,"index":11}],["$","$L8","12",{"src":"/mongodb.png","width":40,"height":40,"index":12}]]}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/python.webp","width":100,"height":100,"index":0}],["$","$L8","1",{"src":"/ruby.webp","width":80,"height":80,"index":1}],["$","$L8","2",{"src":"/swift.webp","width":65,"height":65,"index":2}],["$","$L8","3",{"src":"/java.webp","width":80,"height":80,"index":3}],["$","$L8","4",{"src":"/mui.png","width":80,"height":80,"index":4}],["$","$L8","5",{"src":"/rust.webp","width":80,"height":80,"index":5}],["$","$L8","6",{"src":"/kotlin.webp","width":80,"height":80,"index":6}],["$","$L8","7",{"src":"/dart.webp","width":80,"height":80,"index":7}],["$","$L8","8",{"src":"/flutter.webp","width":50,"height":40,"index":8}],["$","$L8","9",{"src":"/net.webp","width":80,"height":80,"index":9}]]}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/cs.webp","width":80,"height":80,"index":0}],["$","$L8","1",{"src":"/perl.webp","width":70,"height":70,"index":1}],["$","$L8","2",{"src":"/scala.webp","width":70,"height":70,"index":2}],["$","$L8","3",{"src":"/Firebase.png","width":55,"height":55,"index":3}],["$","$L8","4",{"src":"/postger.png","width":70,"height":70,"index":4}],["$","$L8","5",{"src":"/mysql.png","width":70,"height":70,"index":5}],["$","$L8","6",{"src":"/prisma.webp","width":70,"height":70,"index":6}],["$","$L8","7",{"src":"/graphql.png","width":80,"height":80,"index":7}]]}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/github.webp","width":70,"height":70,"index":0}],["$","$L8","1",{"src":"/tauri.svg","width":70,"height":70,"index":1}],["$","$L8","2",{"src":"/docker.webp","width":70,"height":70,"index":2}],["$","$L8","3",{"src":"/figma.png","width":50,"height":50,"index":3}]]}],["$","div",null,{"className":"flex flex-row justify-around flex-wrap mt-4 gap-5 items-center","children":[["$","$L8","0",{"src":"/go.png","width":60,"height":60,"index":0}]]}],["$","div",null,{"className":"w-full h-full absolute","children":["$","div",null,{"className":"w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover","children":["$","video",null,{"className":"w-full h-auto","preload":"false","playsInline":true,"loop":true,"muted":true,"autoPlay":true,"src":"/cards-video.webm"}]}]}]]}],["$","section",null,{"id":"about-event","className":"flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden mb-64 my-20 px-1","children":[["$","h1",null,{"className":"text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20","children":"About the Event"}],["$","div",null,{"className":"w-full h-full md:w-2/3 lg:w-1/2 z-[500] px-1 bg-slate-700/70 flex min-h-[24rem] rounded-lg","children":[["$","div",null,{"className":"w-1/2 p-1 flex flex-col font-bold","children":[["$","div",null,{"children":[["$","h2",null,{"className":"text-white text-center py-2 md:py-3 lg:py-4","children":"Description"}],["$","p",null,{"className":"text-gray-500 text-xs md:text-sm py-1","children":[["$","span",null,{"className":"font-bold underline underline-offset-2 md:underline-offset-[3px] decoration-1 md:decoration-2 text-gray-400 italic","children":"Hack Vortex"}]," ","is a large hybrid hackathon being conducted by GeekRoom JIMS, Rohini, Sector 5. The first round would be conducted through an online meeting, where participants would have to present their projects to their appointed mentors.",["$","br",null,{}],"This would then be followed by the main \u0026 final judgement round, which would be conducted offline in"," ",["$","span",null,{"className":"text-gray-400 underline underline-offset-2","children":"JIMS Rohini, Sector 5, New Delhi."}]]}]]}],["$","div",null,{"className":"flex-grow flex items-end","children":["$","p",null,{"className":"text-gray-400 text-xs md:text-sm py-1","children":["For any queries, feel free to"," ",["$","a",null,{"href":"https://mail.google.com/mail/?view=cm\u0026fs=1\u0026to=geekroomjimsrohini@gmail.com","rel":"noreferrer noopener","target":"_blank","className":"text-blue-400","children":"contact us"}]," ","anytime."]}]}]]}],["$","div",null,{"className":"w-1/2 p-1 flex flex-col","children":[["$","div",null,{"children":["$","h2",null,{"className":"text-white text-center py-2 md:py-3 lg:py-4 font-bold","children":"Hackathon Dates"}]}],["$","div",null,{"className":"flex-grow grid grid-cols-1 grid-rows-[1fr_auto_1fr] lg:grid-rows-1 lg:grid-cols-[1fr_auto_1fr] gap-4 place-items-center","children":[["$","div",null,{"className":"group flex flex-col items-center gap-2 p-4 rounded-2xl border border-transparent hover:border-purple-500/50 transition-all duration-300 hover:scale-110 hover:bg-white/5 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] cursor-pointer","children":[["$","h3",null,{"className":"text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 tracking-widest font-bold text-base uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]","children":"Online Round"}],["$","p",null,{"className":"text-sm text-gray-300 font-medium transition-colors duration-300 group-hover:text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]","children":"TBD (After 15 April)"}]]}],["$","div",null,{"className":"w-[3px] h-20 rotate-90 md:rotate-0 bg-gradient-to-b from-purple-500/20 via-cyan-400 to-purple-500/20 shadow-[0_0_15px_rgba(34,211,238,0.5)] rounded-full transition-all duration-500 group-hover:scale-y-110 group-hover:shadow-[0_0_25px_rgba(34,211,238,0.8)]"}],["$","div",null,{"className":"group flex flex-col items-center gap-2 p-4 rounded-2xl border border-transparent hover:border-purple-500/50 transition-all duration-300 hover:scale-110 hover:bg-white/5 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] cursor-pointer","children":[["$","h3",null,{"className":"text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 tracking-widest font-bold text-base uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]","children":"Offline Round"}],["$","p",null,{"className":"text-sm text-gray-300 font-medium transition-colors duration-300 group-hover:text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]","children":"TBD (After 15 April)"}]]}]]}]]}]]}]]}],["$","$L9",null,{}],["$","$La",null,{}],["$","div",null,{"className":"flex flex-col items-center justify-center py-20","id":"why-us","children":[["$","h1",null,{"className":"text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20","children":"Why Join Us?"}],["$","div",null,{"className":"h-full w-full grid grid-cols-1 md:grid-cols-3 gap-10 px-10","children":[["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/open-innovation.webp","alt":"Open Innovation","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"Open Innovation"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"While we\'ve some themes set in place, we also believe in allowing developers complete freedom in what they develop."}]]}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/trophies.webp","alt":"1,00,000+ Prize Pool","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"1,00,000+ Prize Pool"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"Our still-increasing prize pool ensures deserving coders get enough cool rewards :)"}]]}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/goodies.webp","alt":"Goodies and Swags","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"Goodies and Swags"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"We\'ve got you covered in the swags department as well. We have enough of those for *everyone* in the offline round."}]]}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/foods.webp","alt":"Free Food \u0026 Beverages","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"Free Food \u0026 Beverages"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"Free food \u0026 beverages is always a good additional addon, so we\'re providing all that for you!"}]]}]]}],["$","div",null,{"className":"relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] h-[30rem] flex flex-col justify-between","children":[["$","div",null,{"className":"h-2/3","children":["$","$Lb",null,{"src":"/why-us/cash.webp","alt":"10,000+ Cash Prizes","width":1000,"height":1000,"className":"h-full w-full object-contain"}]}],["$","div",null,{"className":"relative p-4","children":[["$","h1",null,{"className":"sm:text-lg md:text-2xl font-semibold text-white","children":"10,000+ Cash Prizes"}],["$","p",null,{"className":"mt-2 text-gray-300","children":"Free food \u0026 beverages is always a good additional addon, so we\'re providing all that for you!"}]]}]]}],["$","div",null,{"className":"flex justify-center items-center z-[100]","children":["$","a",null,{"href":"https://linktr.ee/GeekRoom_Jims","target":"_blank","rel":"noreferrer noopener","className":"follow-btn md:w-1/2 z-10 text-center","children":[["$","span",null,{"children":"Follow Us"}],["$","div",null,{"className":"liquid"}]]}]}]]}]]}],["$","div",null,{"className":"flex flex-col items-center justify-center py-20 z-[100]","id":"judges","children":[["$","h1",null,{"className":"text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20","children":"Our Judges"}],["$","div",null,{"className":"grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-5 px-4","children":[["$","div","0",{"children":["$","div",null,{"className":"team__item set-bg","style":{"backgroundImage":"url(/judges/DishaLuthra.jpeg)"},"children":["$","div",null,{"className":"team__text group","children":[["$","div",null,{"className":"team__title bg-gradient-to-b from-transparent to-black group-hover:to-transparent","children":[["$","h4",null,{"children":"Disha Luthra"}],["$","span",null,{"children":"Project Management @ Google"}]]}],["$","p",null,{"children":"Meet our judge, Disha Luthra, who is an ex-software engineer, and current Product Management @ Google, and has been a judge for multiple hackathons."}],["$","div",null,{"className":"team__social","children":["$","a",null,{"href":"https://www.linkedin.com/in/disha-luthra/","target":"_blank","rel":"noopener noreferrer","children":["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]}]}]]}]}]}],["$","div","1",{"children":["$","div",null,{"className":"team__item set-bg","style":{"backgroundImage":"url(/judges/MohammadMudassir.jpeg)"},"children":["$","div",null,{"className":"team__text group","children":[["$","div",null,{"className":"team__title bg-gradient-to-b from-transparent to-black group-hover:to-transparent","children":[["$","h4",null,{"children":"Mohammad Mudassir"}],["$","span",null,{"children":"Support Engineer @ Algorand Foundation"}]]}],["$","p",null,{"children":"Meet our judge, Mohammad Mudassir, who is a Support Engineer @ Algorand Foundation, whose expertise shines in the field of blockchain."}],["$","div",null,{"className":"team__social","children":["$","a",null,{"href":"https://www.linkedin.com/in/mohammad-mudassir-b788a41ab/","target":"_blank","rel":"noopener noreferrer","children":["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]}]}]]}]}]}],["$","div","2",{"children":["$","div",null,{"className":"team__item set-bg","style":{"backgroundImage":"url(/judges/PiyushKhurana.jpeg)"},"children":["$","div",null,{"className":"team__text group","children":[["$","div",null,{"className":"team__title bg-gradient-to-b from-transparent to-black group-hover:to-transparent","children":[["$","h4",null,{"children":"Piyush Khurana"}],["$","span",null,{"children":"SDE-1 @ Mobikwik"}]]}],["$","p",null,{"children":"Meet our judge, Piyush Khurana, who is an SDE-1 @ Mobikwik, and brings his knowledge of FinTech and software solutions, and a high experience of judging at previous events."}],["$","div",null,{"className":"team__social","children":["$","a",null,{"href":"https://www.linkedin.com/in/piyush-khurana-dev/","target":"_blank","rel":"noopener noreferrer","children":["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]}]}]]}]}]}],["$","div","3",{"children":["$","div",null,{"className":"team__item set-bg","style":{"backgroundImage":"url(/judges/ShivamGoyal.jpeg)"},"children":["$","div",null,{"className":"team__text group","children":[["$","div",null,{"className":"team__title bg-gradient-to-b from-transparent to-black group-hover:to-transparent","children":[["$","h4",null,{"children":"Shivam Goyal"}],["$","span",null,{"children":"SDE-2 @ Junglee Games"}]]}],["$","p",null,{"children":"Meet our judge, Shivam Goyal, who is an SDE-2 @ JungleeGames, and brings his rich experience of accessible software solutions and judging."}],["$","div",null,{"className":"team__social","children":["$","a",null,{"href":"https://www.linkedin.com/in/shivamgoyall/","target":"_blank","rel":"noopener noreferrer","children":["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}]}]}]]}]}]}]]}]]}],["$","section",null,{"className":"flex flex-col items-center justify-center py-20","id":"sponsors","children":[["$","h1",null,{"className":"text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20","children":"Our Sponsors"}],["$","div",null,{"className":"h-full w-full grid grid-cols-1 md:grid-cols-3 gap-10 px-10 place-items-center","children":[["$","div",null,{"className":"card w-[16rem] h-[16rem] max-w-[20rem] max-h-[20rem] lg:max-w-none lg:max-h-none lg:w-[30rem] lg:h-[30rem] z-[200]","children":["$","div",null,{"className":"content","children":[["$","div",null,{"className":"back","children":["$","div",null,{"className":"back-content","children":[["$","$Lb",null,{"src":"/sponsors/sponsor-img.webp","width":160,"height":160,"alt":"Sponsors"}],["$","strong",null,{"className":"text-gray-500 text-xl","children":"Silver Tier"}]]}]}],["$","div",null,{"className":"front","children":[["$","div",null,{"className":"img","children":[["$","div",null,{"className":"circle"}],["$","div",null,{"className":"circle","id":"right"}],["$","div",null,{"className":"circle","id":"bottom"}]]}],["$","div",null,{"className":"front-content","children":[["$","small",null,{"className":"badge","children":"Silver Tier"}],["$","ul",null,{"className":"grid grid-cols-2 place-items-center","children":[["$","li","0",{"className":"flex gap-x-1 py-1 hover:scale-125 transition-all duration-300 ease-in-out","children":["$","$Lb",null,{"src":"/sponsors/interview-buddy.png","width":80,"height":80,"alt":"Interview Buddy","className":"w-[5rem] h-[5rem] md:w-[6rem] lg:w-[8rem] lg:h-[7rem]"}]}]]}]]}]]}]]}]}],["$","div",null,{"className":"card w-[16rem] h-[16rem] max-w-[20rem] max-h-[20rem] lg:max-w-none lg:max-h-none lg:w-[30rem] lg:h-[30rem] z-[200]","children":["$","div",null,{"className":"content","children":[["$","div",null,{"className":"back","children":["$","div",null,{"className":"back-content","children":[["$","$Lb",null,{"src":"/sponsors/sponsor-img.webp","width":160,"height":160,"alt":"Sponsors"}],["$","strong",null,{"className":"text-yellow-300 text-xl","children":"Gold Tier"}]]}]}],["$","div",null,{"className":"front","children":[["$","div",null,{"className":"img","children":[["$","div",null,{"className":"circle"}],["$","div",null,{"className":"circle","id":"right"}],["$","div",null,{"className":"circle","id":"bottom"}]]}],["$","div",null,{"className":"front-content","children":[["$","small",null,{"className":"badge","children":"Gold Tier"}],["$","ul",null,{"className":"grid grid-cols-2 place-items-center","children":[["$","li","0",{"className":"flex gap-x-1 py-1 hover:scale-125 transition-all duration-300 ease-in-out","children":["$","$Lb",null,{"src":"/sponsors/hackquest.jpg","width":80,"height":80,"alt":"Devfolio","className":"w-[5rem] h-[5rem] md:w-[6rem] lg:w-[8rem] lg:h-[7rem]"}]}]]}]]}]]}]]}]}],["$","div",null,{"className":"card w-[16rem] h-[16rem] max-w-[20rem] max-h-[20rem] lg:max-w-none lg:max-h-none lg:w-[30rem] lg:h-[30rem] z-[200]","children":["$","div",null,{"className":"content","children":[["$","div",null,{"className":"back","children":["$","div",null,{"className":"back-content","children":[["$","$Lb",null,{"src":"/sponsors/sponsor-img.webp","width":160,"height":160,"alt":"Sponsors"}],["$","strong",null,{"className":"text-red-800 text-xl","children":"Bronze Tier"}]]}]}],["$","div",null,{"className":"front","children":[["$","div",null,{"className":"img","children":[["$","div",null,{"className":"circle"}],["$","div",null,{"className":"circle","id":"right"}],["$","div",null,{"className":"circle","id":"bottom"}]]}],["$","div",null,{"className":"front-content","children":[["$","small",null,{"className":"badge","children":"Bronze Tier"}],["$","ul",null,{"className":"grid grid-cols-2 place-items-center","children":[["$","li","0",{"className":"flex gap-x-1 py-1 hover:scale-125 transition-all duration-300 ease-in-out","children":["$","$Lb",null,{"src":"/sponsors/lazer-crazer.png","width":80,"height":80,"alt":"Lazer Crazer","className":"w-[5rem] h-[5rem] md:w-[6rem] lg:w-[8rem] lg:h-[7rem]"}]}],["$","li","1",{"className":"flex gap-x-1 py-1 hover:scale-125 transition-all duration-300 ease-in-out","children":["$","$Lb",null,{"src":"/sponsors/niia-512.png","width":80,"height":80,"alt":"Niia 512","className":"w-[5rem] h-[5rem] md:w-[6rem] lg:w-[8rem] lg:h-[7rem]"}]}]]}]]}]]}]]}]}]]}]]}],["$","$Lc",null,{}]]}]}]],null],null]},[["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__className_36bd41 bg-[#030014] overflow-y-scroll overflow-x-hidden","children":[["$","$Ld",null,{}],["$","div",null,{"className":"w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-[1000] md:px-10","children":["$","div",null,{"className":"w-full h-full flex flex-row items-center justify-between m-auto md:px-[10px]","children":[["$","a",null,{"href":"#about-me","className":"h-auto w-auto flex flex-row items-center","children":[["$","$Lb",null,{"src":"/hack-logo.png","alt":"logo","width":70,"height":70,"className":"cursor-pointer hover:animate-slowspin"}],["$","span",null,{"className":"font-bold ml-[10px] hidden md:block text-gray-300","children":"Hack Vortex"}]]}],["$","div",null,{"className":"w-[500px] h-full flex flex-row items-center justify-between md:mr-20","children":["$","div",null,{"className":"flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200 text-[0.65rem] md:text-xs lg:text-sm","children":[["$","a",null,{"href":"#why-us","className":"cursor-pointer","children":"Why Us"}],["$","a",null,{"href":"#judges","className":"cursor-pointer","children":"Judges"}],["$","a",null,{"href":"#sponsors","className":"cursor-pointer","children":"Sponsors"}]]}]}],["$","div",null,{"className":"flex flex-row gap-5","children":["$","$Lb",null,{"src":"/geekroomjimslogo.png","width":50,"height":50,"alt":"Logo"}]}]]}]}],["$","$Le",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lf",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\\"Segoe UI\\",Roboto,Helvetica,Arial,sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3ccace02cc1e1582.css","precedence":"next","crossOrigin":"$undefined"}]]}],["$","div",null,{"className":"w-full h-full bg-transparent text-gray-200 shadow-2xl shadow-white p-[15px] border-t-2 border-t-white/30","children":["$","div",null,{"className":"w-full flex flex-col items-center justify-center m-auto","children":[["$","div",null,{"className":"w-full h-full grid grid-cols-1 md:grid-cols-3 z-[500]","children":[["$","div",null,{"className":"min-w-[200px] h-auto flex flex-col items-center justify-start","children":["$","div",null,{"children":[["$","div",null,{"className":"font-bold text-[16px]","children":"Community"}],["$","a",null,{"href":"https://www.instagram.com/geekroom_jims/","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","span",null,{"className":"text-[15px] ml-[6px]","children":"Instagram"}]]}],["$","a",null,{"href":"https://www.linkedin.com/company/geekroom-jims","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":[["$","svg",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","viewBox":"0 0 448 512","children":["$undefined",[["$","path","0",{"d":"M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z","children":"$undefined"}]]],"className":"$undefined","style":{"color":"$undefined"},"height":"1em","width":"1em","xmlns":"http://www.w3.org/2000/svg"}],["$","span",null,{"className":"text-[15px] ml-[6px]","children":"Linkedin"}]]}]]}]}],["$","div",null,{"className":"min-w-[200px] h-auto flex flex-col items-center","children":[["$","div",null,{"className":"font-bold text-[16px]","children":"Past Hackathons"}],["$","a",null,{"href":"https://codekshetra.vercel.app/","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":["$","span",null,{"className":"text-[15px] ml-[6px]","children":"Code Kshetra"}]}]]}],["$","div",null,{"className":"min-w-[200px] h-auto flex flex-col items-center justify-start","children":[["$","div",null,{"className":"font-bold text-[16px]","children":"Explore More"}],["$","a",null,{"href":"https://chat.whatsapp.com/KGvAnrHbwyz1rhJ7hXzvLm","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":["$","span",null,{"className":"text-[15px] ml-[6px]","children":"Join Us"}]}],["$","a",null,{"href":"https://mail.google.com/mail/?view=cm\u0026fs=1\u0026to=geekroomjimsrohini@gmail.com","rel":"noopener noreferrer","target":"_blank","className":"flex flex-row items-center my-[15px] cursor-pointer","children":["$","span",null,{"className":"text-[15px] ml-[6px] text-blue-200","children":"geekroomjimsrohini@gmail.com"}]}]]}]]}],["$","div",null,{"className":"mb-[20px] text-[15px] text-center","children":"© Geek Room JIMS, Rohini 2024 Inc. All rights reserved"}]]}]}]]}]}],null],null],"couldBeIntercepted":false,"initialHead":[null,"$L10"],"globalErrorComponent":"$11","missingSlots":"$W12"}]]\n',
         ]);
     </script>
     <script>
@@ -1424,8 +1412,8 @@
                 class="relative py-32 flex flex-col items-center justify-center overflow-hidden z-[100] bg-transparent">
                 <div class="layered-header mb-10 z-20">
                     <span class="header-bg-text">JOURNEY</span>
-                    <h1 class="header-fg-text text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]"
-                        style="font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0.1em;">JOURNEY OF CR</h1>
+                    <div class="header-fg-text h1-div-style text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+                        style="font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0.1em;">JOURNEY OF CR</div>
                 </div>
                 <div
                     class="relative w-full max-w-[900px] h-[550px] flex items-center justify-center z-10 scale-[0.4] sm:scale-[0.55] md:scale-[0.65] lg:scale-[0.7]">
@@ -1605,7 +1593,7 @@
                 <!-- Main Section Header -->
                 <div class="layered-header">
                     <span class="header-bg-text">ABOUT</span>
-                    <h1 class="header-fg-text">ABOUT THE EVENT</h1>
+                    <h1 class="header-fg-text h1-div-style">ABOUT THE EVENT</h1>
                 </div>
                 <!-- Floating Assets Wrapper - Placeholders for your images -->
                 <div class="relative w-full max-w-6xl mx-auto">
@@ -1616,7 +1604,7 @@
                             <img src="https://ik.imagekit.io/logicsync/astronaut.png" alt="Astronaut"
                                 class="w-full h-auto drop-shadow-[0_0_25px_rgba(168,85,247,0.4)]">
                         </div>
-                        <h1 class="about-title">WHAT IS CODE नक्षत्र II?</h1>
+                        <div class="about-title h1-div-style">WHAT IS CODE नक्षत्र II?</div>
                         <p class="about-text">
                             CODE नक्षत्र II is a cutting-edge hybrid Technical Community constructed by the ambitious
                             students of
@@ -1654,7 +1642,7 @@
                             <img src="https://ik.imagekit.io/logicsync/earth" alt="Code Rangers Asset 1"
                                 class="w-full h-auto drop-shadow-[0_0_25px_rgba(168,85,247,0.4)]">
                         </div>
-                        <h1 class="about-title">What is Code Rangers?</h1>
+                        <div class="about-title h1-div-style">What is Code Rangers?</div>
                         <p class="about-text">
                             Code Rangers is the premier technical community of Trinity Institute of Innovation in
                             Professional Studies
@@ -1692,7 +1680,7 @@
                 <!-- Compact Glowy Title -->
                 <div class="layered-header">
                     <span class="header-bg-text">VENUE</span>
-                    <h1 class="header-fg-text">VENUE</h1>
+                    <div class="header-fg-text h1-div-style">VENUE</div>
                 </div>
                 <div class="max-w-[1200px] mx-auto px-6 flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 w-full">
                     <!-- Left Details (Right-aligned text) -->
@@ -1731,7 +1719,7 @@
             <section id="timeline" class="tl-cosmic-container py-32">
                 <div class="layered-header">
                     <span class="header-bg-text">TIMELINE</span>
-                    <h1 class="header-fg-text">EVENT TIMELINE</h1>
+                    <div class="header-fg-text h1-div-style">EVENT TIMELINE</div>
                 </div>
                 <!-- SVG Winding Path -->
                 <svg class="tl-cosmic-path-svg" viewBox="0 0 1000 1600" preserveAspectRatio="none">
@@ -1746,7 +1734,7 @@
                         </div>
                         <div class="tl-cosmic-info">
                             <div class="tl-cosmic-date">March 05</div>
-                            <h3 class="tl-cosmic-title">Registration Opens 🚀</h3>
+                            <div class="tl-cosmic-title h3-div-style">Registration Opens 🚀</div>
                             <p class="tl-cosmic-descr">The official commencement of the registration process for our
                                 Community. Sign
                                 up and be part of the journey!</p>
@@ -1759,7 +1747,7 @@
                         </div>
                         <div class="tl-cosmic-info">
                             <div class="tl-cosmic-date">TBD</div>
-                            <h3 class="tl-cosmic-title">Acceptance Mails 📬</h3>
+                            <div class="tl-cosmic-title h3-div-style">Acceptance Mails 📬</div>
                             <p class="tl-cosmic-descr">During this time period, acceptance mails will be sent out to
                                 eligible
                                 participants. Keep an eye on your inbox!</p>
@@ -1772,7 +1760,7 @@
                         </div>
                         <div class="tl-cosmic-info">
                             <div class="tl-cosmic-date">May 01</div>
-                            <h3 class="tl-cosmic-title">Mentors Reveal 🌟</h3>
+                            <div class="tl-cosmic-title h3-div-style">Mentors Reveal 🌟</div>
                             <p class="tl-cosmic-descr">Our mentors will be unveiled on our social media channels — make
                                 sure you're
                                 following us for the big reveal!</p>
@@ -1785,7 +1773,7 @@
                         </div>
                         <div class="tl-cosmic-info">
                             <div class="tl-cosmic-date">May 03</div>
-                            <h3 class="tl-cosmic-title">Judges Reveal ⚖️</h3>
+                            <div class="tl-cosmic-title h3-div-style">Judges Reveal ⚖️</div>
                             <p class="tl-cosmic-descr">Following the mentors reveal, our judges will also be announced
                                 on our social
                                 media platforms!</p>
@@ -1798,7 +1786,7 @@
                         </div>
                         <div class="tl-cosmic-info">
                             <div class="tl-cosmic-date">May 05</div>
-                            <h3 class="tl-cosmic-title">Registration Closes ⏳</h3>
+                            <div class="tl-cosmic-title h3-div-style">Registration Closes ⏳</div>
                             <p class="tl-cosmic-descr">The start of this day marks the end of the hackathon's
                                 registration window.
                                 Don't miss your chance!</p>
@@ -1811,7 +1799,7 @@
                         </div>
                         <div class="tl-cosmic-info">
                             <div class="tl-cosmic-date">May 06</div>
-                            <h3 class="tl-cosmic-title">Online Round 💻</h3>
+                            <div class="tl-cosmic-title h3-div-style">Online Round 💻</div>
                             <p class="tl-cosmic-descr">An online mentoring round to filter participating teams for the
                                 final (offline)
                                 round. Show your best work!</p>
@@ -1824,7 +1812,7 @@
                         </div>
                         <div class="tl-cosmic-info">
                             <div class="tl-cosmic-date">May 07</div>
-                            <h3 class="tl-cosmic-title">Offline Round 🏆</h3>
+                            <div class="tl-cosmic-title h3-div-style">Offline Round 🏆</div>
                             <p class="tl-cosmic-descr">The offline final judgement round begins. Good luck to all
                                 selected
                                 participants — this is your moment!</p>
@@ -1837,7 +1825,7 @@
                 <div class="max-w-[1400px] mx-auto relative z-20 flex flex-col items-center">
                     <div class="layered-header">
                         <span class="header-bg-text">PRIZES</span>
-                        <h1 class="header-fg-text">PRIZES</h1>
+                        <div class="header-fg-text h1-div-style">PRIZES</div>
                     </div>
                     <style>
                         .prize-nebula-card {
@@ -1957,22 +1945,6 @@
                             box-shadow: 0 0 40px rgba(180, 83, 9, 0.4);
                             border-color: #b45309;
                         }
-
-                        @media (max-width: 768px) {
-                            .prize-nebula-amount {
-                                font-size: 2rem !important;
-                            }
-
-                            .prize-nebula-card.scale-110 {
-                                transform: scale(1) !important;
-                                margin: 1rem 0 !important;
-                            }
-
-                            .prize-nebula-card {
-                                width: 100% !important;
-                                max-width: 320px !important;
-                            }
-                        }
                     </style>
                     <div class="w-full max-w-7xl px-6 md:px-12 mx-auto mt-20">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 lg:gap-10">
@@ -1984,7 +1956,7 @@
                                         <path d="M12 2L9 9H2L7 14L5 21L12 17L19 21L17 14L22 9H15L12 2Z" />
                                     </svg>
                                 </div>
-                                <h3 class="prize-nebula-amount">INR 8K</h3>
+                                <div class="prize-nebula-amount h3-div-style">INR 8K</div>
                                 <p class="prize-nebula-title">1st Runner-Up</p>
                             </div>
                             <!-- 1st PRIZE (GOLD) -->
@@ -1995,7 +1967,8 @@
                                         <path d="M12 2L15 8H21L16 12L18 19L12 15L6 19L8 12L3 8H9L12 2Z" />
                                     </svg>
                                 </div>
-                                <h3 class="prize-nebula-amount" style="font-size: 3.5rem; color: #fff;">INR 12K</h3>
+                                <div class="prize-nebula-amount h3-div-style" style="font-size: 3.5rem; color: #fff;">
+                                    INR 12K</div>
                                 <p class="prize-nebula-title" style="color: #fbbf24; font-size: 1.1rem;">Grand Winner
                                 </p>
                             </div>
@@ -2007,7 +1980,7 @@
                                         <path d="M12 2L9 9H2L7 14L5 21L12 17L19 21L17 14L22 9H15L12 2Z" />
                                     </svg>
                                 </div>
-                                <h3 class="prize-nebula-amount">INR 5K</h3>
+                                <div class="prize-nebula-amount h3-div-style">INR 5K</div>
                                 <p class="prize-nebula-title">2nd Runner-Up</p>
                             </div>
                         </div>
@@ -2019,9 +1992,9 @@
                                     <img src="https://ik.imagekit.io/logicsync/girls" alt="Best All Girls Team"
                                         class="w-full h-full object-contain filter drop-shadow(0 0 20px rgba(244, 114, 182, 0.4)) transition-transform duration-500 hover:scale-110" />
                                 </div>
-                                <h3 class="prize-nebula-amount"
+                                <div class="prize-nebula-amount h3-div-style"
                                     style="font-size: 3.2rem; filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.4));">
-                                    INR 5000/-</h3>
+                                    INR 5000/-</div>
                                 <p class="prize-nebula-title"
                                     style="color: #cbd5e1; opacity: 0.9; letter-spacing: 1px; font-size: 1.1rem;">Best
                                     All Girls Team</p>
@@ -2032,9 +2005,9 @@
                                     <img src="https://ik.imagekit.io/logicsync/beginner.svg" alt="Best Beginner Team"
                                         class="w-full h-full object-contain filter drop-shadow(0 0 20px rgba(52, 211, 153, 0.4)) transition-transform duration-500 hover:scale-110" />
                                 </div>
-                                <h3 class="prize-nebula-amount"
+                                <div class="prize-nebula-amount h3-div-style"
                                     style="font-size: 3.2rem; filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.4));">
-                                    INR 5000/-</h3>
+                                    INR 5000/-</div>
                                 <p class="prize-nebula-title"
                                     style="color: #cbd5e1; opacity: 0.9; letter-spacing: 1px; font-size: 1.1rem;">Best
                                     Beginner Team</p>
@@ -2048,7 +2021,7 @@
                 <div class="max-w-[1200px] mx-auto relative z-20 flex flex-col items-center">
                     <div class="layered-header">
                         <span class="header-bg-text">TRACKS</span>
-                        <h1 class="header-fg-text">TRACKS</h1>
+                        <div class="header-fg-text h1-div-style">TRACKS</div>
                     </div>
                     <div class="flex justify-center w-full px-6 mb-20">
                         <div class="border border-white/10 rounded-3xl px-10 py-5 max-w-4xl text-center text-sm md:text-base font-medium text-white/70 bg-white/[0.02] backdrop-blur-xl shadow-[0_0_30px_rgba(0,0,0,0.3)]"
@@ -2058,14 +2031,14 @@
                             hackathon projects!
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full">
                         <!-- Healthcare -->
                         <div class="track-card group">
                             <div class="track-img-wrapper">
                                 <img src="https://ik.imagekit.io/logicsync/image%202" alt="Healthcare"
                                     class="w-full h-full object-contain">
                             </div>
-                            <h3 class="track-title text-[#a855f7]">Healthcare</h3>
+                            <div class="track-title text-[#a855f7] h3-div-style">Healthcare</div>
                         </div>
                         <!-- Agriculture -->
                         <div class="track-card group">
@@ -2073,7 +2046,7 @@
                                 <img src="https://ik.imagekit.io/logicsync/image1" alt="Agriculture"
                                     class="w-full h-full object-contain">
                             </div>
-                            <h3 class="track-title text-[#a855f7]">Agriculture</h3>
+                            <div class="track-title text-[#a855f7] h3-div-style">Agriculture</div>
                         </div>
                         <!-- Technology -->
                         <div class="track-card group">
@@ -2081,7 +2054,7 @@
                                 <img src="https://ik.imagekit.io/logicsync/image%205" alt="Technology"
                                     class="w-full h-full object-contain">
                             </div>
-                            <h3 class="track-title text-[#a855f7]">Technology</h3>
+                            <div class="track-title text-[#a855f7] h3-div-style">Technology</div>
                         </div>
                         <!-- AI/ML -->
                         <div class="track-card group">
@@ -2089,15 +2062,15 @@
                                 <img src="https://ik.imagekit.io/logicsync/image" alt="AI/ML"
                                     class="w-full h-full object-contain">
                             </div>
-                            <h3 class="track-title text-[#a855f7]">AI/ML</h3>
+                            <div class="track-title text-[#a855f7] h3-div-style">AI/ML</div>
                         </div>
                         <!-- IoT -->
                         <div class="track-card group">
                             <div class="track-img-wrapper">
-                                <img src="https://ik.imagekit.io/logicsync/image%202" alt="IoT"
-                                    class="w-full h-full object-contain" style="filter: hue-rotate(90deg)">
+                                <img src="https://ik.imagekit.io/logicsync/3.png" alt="IoT"
+                                    class="w-full h-full object-contain">
                             </div>
-                            <h3 class="track-title text-[#a855f7]">IoT</h3>
+                            <div class="track-title text-[#a855f7] h3-div-style">IoT</div>
                         </div>
                         <!-- Web3 -->
                         <div class="track-card group">
@@ -2105,7 +2078,7 @@
                                 <img src="https://ik.imagekit.io/logicsync/image6" alt="Web3"
                                     class="w-full h-full object-contain">
                             </div>
-                            <h3 class="track-title text-[#a855f7]">Web3</h3>
+                            <div class="track-title text-[#a855f7] h3-div-style">Web3</div>
                         </div>
                         <!-- Open Innovation -->
                         <div class="track-card group">
@@ -2113,7 +2086,15 @@
                                 <img src="https://ik.imagekit.io/logicsync/image%204" alt="Open Innovation"
                                     class="w-full h-full object-contain">
                             </div>
-                            <h3 class="track-title text-[#a855f7]">Open Innovation</h3>
+                            <div class="track-title text-[#a855f7] h3-div-style">Open Innovation</div>
+                        </div>
+                        <!-- Defence -->
+                        <div class="track-card group">
+                            <div class="track-img-wrapper">
+                                <img src="https://ik.imagekit.io/logicsync/5.png" alt="Defence"
+                                    class="w-full h-full object-contain">
+                            </div>
+                            <div class="track-title text-[#a855f7] h3-div-style">Defence</div>
                         </div>
                     </div>
                 </div>
@@ -2123,8 +2104,8 @@
                 class="relative py-32 flex flex-col items-center justify-center overflow-hidden z-[100] bg-transparent">
                 <div class="layered-header mb-16 z-20">
                     <span class="header-bg-text">EVENTS</span>
-                    <h1 class="header-fg-text text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]"
-                        style="font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0.1em;">EVENTS</h1>
+                    <div class="header-fg-text h1-div-style text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+                        style="font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0.1em;">EVENTS</div>
                 </div>
                 <!-- Photo Grid matching the 4x3 masonry layout -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-6xl mt-10 z-10 px-6 md:auto-rows-[250px]"
@@ -2133,7 +2114,8 @@
                     <!-- Image A (Top Left) -->
                     <div
                         class="md:col-span-2 w-full h-[250px] md:h-full border border-white/10 outline outline-1 outline-white/20 outline-offset-4 hover:outline-fuchsia-500/50 bg-[#121212]/50 overflow-hidden relative flex items-center justify-center group shadow-[0_8px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(217,70,239,0.25)] hover:border-fuchsia-500/50 hover:-translate-y-2 transition-all duration-500">
-
+                        <span class="absolute text-white/30 text-sm tracking-widest font-semibold z-0">PASTE IMAGE URL
+                            IN SRC</span>
                         <img src="https://ik.imagekit.io/logicsync/nk.jpg?updatedAt=1759836869416" alt="Event Frame 1"
                             class="w-full h-full object-cover relative z-10 transition-transform duration-[800ms] group-hover:scale-110">
                         <div
@@ -2153,7 +2135,10 @@
                     <!-- Image C (Tall Right) -->
                     <div
                         class="md:col-span-1 md:row-span-2 w-full h-[300px] md:h-full border border-white/10 outline outline-1 outline-white/20 outline-offset-4 hover:outline-purple-500/50 bg-[#121212]/50 overflow-hidden relative flex items-center justify-center group shadow-[0_8px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(168,85,247,0.25)] hover:border-purple-500/50 hover:-translate-y-2 transition-all duration-500">
-
+                        <span
+                            class="absolute text-white/30 text-sm tracking-widest font-semibold z-0 text-center px-4">PASTE
+                            TALL
+                            IMAGE URL</span>
                         <img src="https://ik.imagekit.io/logicsync/sih222.jpg?updatedAt=1759836292864"
                             alt="Event Frame 2"
                             class="w-full h-full object-cover relative z-10 transition-transform duration-[800ms] group-hover:scale-110">
@@ -2175,7 +2160,8 @@
                     <!-- Image E (Middle) -->
                     <div
                         class="md:col-span-2 w-full h-[250px] md:h-full border border-white/10 outline outline-1 outline-white/20 outline-offset-4 hover:outline-cyan-500/50 bg-[#121212]/50 overflow-hidden relative flex items-center justify-center group shadow-[0_8px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(34,211,238,0.25)] hover:border-cyan-500/50 hover:-translate-y-2 transition-all duration-500">
-
+                        <span class="absolute text-white/30 text-sm tracking-widest font-semibold z-0">PASTE IMAGE URL
+                            IN SRC</span>
                         <img src="https://ik.imagekit.io/logicsync/WhatsApp%20Image%202025-10-07%20at%2016.40.04_efbeb055.jpg?updatedAt=1759835587076"
                             alt="Event Frame 3"
                             class="w-full h-full object-cover relative z-10 transition-transform duration-[800ms] group-hover:scale-110">
@@ -2187,7 +2173,10 @@
                     <!-- Image F (Bottom Left) -->
                     <div
                         class="md:col-span-1 w-full h-[250px] md:h-full border border-white/10 outline outline-1 outline-white/20 outline-offset-4 hover:outline-purple-500/50 bg-[#121212]/50 overflow-hidden relative flex items-center justify-center group shadow-[0_8px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(168,85,247,0.25)] hover:border-purple-500/50 hover:-translate-y-2 transition-all duration-500">
-
+                        <span
+                            class="absolute text-white/30 text-sm tracking-widest font-semibold z-0 text-center px-2">PASTE
+                            IMAGE
+                            URL</span>
                         <img src="https://ik.imagekit.io/logicsync/Ha17.jpg" alt="Event Frame 4"
                             class="w-full h-full object-cover relative z-10 transition-transform duration-[800ms] group-hover:scale-110">
                         <div
@@ -2207,7 +2196,8 @@
                     <!-- Image H (Bottom Right) -->
                     <div
                         class="md:col-span-2 w-full h-[250px] md:h-full border border-white/10 outline outline-1 outline-white/20 outline-offset-4 hover:outline-fuchsia-500/50 bg-[#121212]/50 overflow-hidden relative flex items-center justify-center group shadow-[0_8px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(217,70,239,0.25)] hover:border-fuchsia-500/50 hover:-translate-y-2 transition-all duration-500">
-
+                        <span class="absolute text-white/30 text-sm tracking-widest font-semibold z-0">PASTE IMAGE URL
+                            IN SRC</span>
                         <img src="https://ik.imagekit.io/logicsync/TJ1.jpg" alt="Event Frame 5"
                             class="w-full h-full object-cover relative z-10 transition-transform duration-[800ms] group-hover:scale-110">
                         <div
@@ -2228,7 +2218,7 @@
                     <!-- Title -->
                     <div class="layered-header">
                         <span class="header-bg-text">SPONSORS</span>
-                        <h1 class="header-fg-text">WHY SPONSOR US?</h1>
+                        <div class="header-fg-text h1-div-style">WHY SPONSOR US?</div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-[1100px]"
                         style="font-family: 'League Spartan', sans-serif;">
@@ -2243,8 +2233,9 @@
                                         d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold tracking-widest mb-4 uppercase" style="color: #a855f7;">
-                                Promotion</h3>
+                            <div class="text-2xl font-bold tracking-widest mb-4 uppercase h3-div-style"
+                                style="color: #a855f7;">
+                                Promotion</div>
                             <p class="text-gray-300 leading-relaxed text-lg font-medium opacity-90">
                                 Sponsoring events promotes your brand. Higher sponsorship packages offer more exposure.
                                 This creates a
@@ -2262,8 +2253,9 @@
                                         d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold tracking-widest mb-4 uppercase" style="color: #a855f7;">
-                                Recruitment</h3>
+                            <div class="text-2xl font-bold tracking-widest mb-4 uppercase h3-div-style"
+                                style="color: #a855f7;">
+                                Recruitment</div>
                             <p class="text-gray-300 leading-relaxed text-lg font-medium opacity-90">
                                 Sponsor CODE नक्षत्र II, connect with potential employees. Meet bright minds from the
                                 region, interview
@@ -2281,8 +2273,9 @@
                                         d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold tracking-widest mb-4 uppercase" style="color: #a855f7;">New
-                                Technology</h3>
+                            <div class="text-2xl font-bold tracking-widest mb-4 uppercase h3-div-style"
+                                style="color: #a855f7;">New
+                                Technology</div>
                             <p class="text-gray-300 leading-relaxed text-lg font-medium opacity-90">
                                 Test new technologies and incentivize students. Create challenges aligned with your
                                 technology to
@@ -2300,8 +2293,9 @@
                                         d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold tracking-widest mb-4 uppercase" style="color: #a855f7;">
-                                Inspiration</h3>
+                            <div class="text-2xl font-bold tracking-widest mb-4 uppercase h3-div-style"
+                                style="color: #a855f7;">
+                                Inspiration</div>
                             <p class="text-gray-300 leading-relaxed text-lg font-medium opacity-90">
                                 Stimulate fresh ideas for challenging problems. Inspire both participants and your team
                                 by tackling
@@ -2320,13 +2314,13 @@
             <div class="flex flex-col items-center justify-center py-32 z-[100]" id="judges">
                 <div class="layered-header">
                     <span class="header-bg-text">JUDGES</span>
-                    <h1 class="header-fg-text">Our Judges</h1>
+                    <div class="header-fg-text h1-div-style">Our Judges</div>
                 </div>
                 <div class="jg-grid">
                     <!-- ── JUDGE 1 ────────────────────────────── -->
                     <div class="jg-card">
                         <div class="jg-photo"
-                            style="background-image: url('https://ik.imagekit.io/logicsync/nk.jpg'); filter: grayscale(1) opacity(0.3);">
+                            style="background-image: url('/judges/DishaLuthra.jpeg'); filter: grayscale(1) opacity(0.3);">
                             <div class="jg-tba-wrapper">
                                 <span class="jg-tba-text">To Be Announced</span>
                             </div>
@@ -2338,7 +2332,7 @@
                     <!-- ── JUDGE 2 ────────────────────────────── -->
                     <div class="jg-card">
                         <div class="jg-photo"
-                            style="background-image: url('https://ik.imagekit.io/logicsync/nk.jpg'); filter: grayscale(1) opacity(0.3);">
+                            style="background-image: url('/judges/MohammadMudassir.jpeg'); filter: grayscale(1) opacity(0.3);">
                             <div class="jg-tba-wrapper">
                                 <span class="jg-tba-text">To Be Announced</span>
                             </div>
@@ -2350,7 +2344,7 @@
                     <!-- ── JUDGE 3 ────────────────────────────── -->
                     <div class="jg-card">
                         <div class="jg-photo"
-                            style="background-image: url('https://ik.imagekit.io/logicsync/nk.jpg'); filter: grayscale(1) opacity(0.3);">
+                            style="background-image: url('/judges/PiyushKhurana.jpeg'); filter: grayscale(1) opacity(0.3);">
                             <div class="jg-tba-wrapper">
                                 <span class="jg-tba-text">To Be Announced</span>
                             </div>
@@ -2362,7 +2356,7 @@
                     <!-- ── JUDGE 4 ────────────────────────────── -->
                     <div class="jg-card">
                         <div class="jg-photo"
-                            style="background-image: url('https://ik.imagekit.io/logicsync/nk.jpg'); filter: grayscale(1) opacity(0.3);">
+                            style="background-image: url('/judges/ShivamGoyal.jpeg'); filter: grayscale(1) opacity(0.3);">
                             <div class="jg-tba-wrapper">
                                 <span class="jg-tba-text">To Be Announced</span>
                             </div>
@@ -2378,7 +2372,7 @@
                 class="flex flex-col items-center justify-center py-32 z-[100] relative overflow-hidden">
                 <div class="layered-header mb-20">
                     <span class="header-bg-text">ORGANISERS</span>
-                    <h1 class="header-fg-text">ORGANISERS</h1>
+                    <div class="header-fg-text h1-div-style">ORGANISERS</div>
                 </div>
                 <style>
                     .org-bubble-container {
@@ -2550,11 +2544,10 @@
                                         alt="Mrs. Gunjan Arya">
                                 </div>
                             </div>
-                            <h3 class="org-bubble-name">Mrs. Gunjan Arya</h3>
+                            <div class="org-bubble-name h3-div-style">Mrs. Gunjan Arya</div>
                             <p class="org-bubble-role">Faculty lead</p>
                             <div class="org-bubble-socials">
                                 <a href="#" class="org-social-btn"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="org-social-btn"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <!-- Lead 2 -->
@@ -2565,11 +2558,10 @@
                                         alt="Harshit Gupta">
                                 </div>
                             </div>
-                            <h3 class="org-bubble-name">Harshit Gupta</h3>
+                            <div class="org-bubble-name h3-div-style">Harshit Gupta</div>
                             <p class="org-bubble-role">Organising lead</p>
                             <div class="org-bubble-socials">
                                 <a href="#" class="org-social-btn"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="org-social-btn"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <!-- Lead 3 -->
@@ -2579,11 +2571,10 @@
                                     <img src="https://ik.imagekit.io/logicsync/dhruv.jpg" alt="Dhruv Chaursiya">
                                 </div>
                             </div>
-                            <h3 class="org-bubble-name">Dhruv Chaursiya</h3>
+                            <div class="org-bubble-name h3-div-style">Dhruv Chaursiya</div>
                             <p class="org-bubble-role">Organising lead</p>
                             <div class="org-bubble-socials">
                                 <a href="#" class="org-social-btn"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="org-social-btn"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <!-- Lead 4 -->
@@ -2594,11 +2585,10 @@
                                         alt="Varun Gupta">
                                 </div>
                             </div>
-                            <h3 class="org-bubble-name">Varun Gupta</h3>
+                            <div class="org-bubble-name h3-div-style">Varun Gupta</div>
                             <p class="org-bubble-role">Event management lead</p>
                             <div class="org-bubble-socials">
                                 <a href="#" class="org-social-btn"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="org-social-btn"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
@@ -2628,11 +2618,10 @@
                          <img src="${m.img}" alt="${m.name}" onerror="this.src='https://ik.imagekit.io/logicsync/default-avatar.png'; this.onerror=null;">
                        </div>
                      </div>
-                     <h3 class="org-bubble-name org-bubble-small-name">${m.name}</h3>
+                     <div class="org-bubble-name org-bubble-small-name h3-div-style">${m.name}</div>
                      <p class="org-bubble-role org-bubble-small-role">${m.role}</p>
                      <div class="org-bubble-socials">
                        <a href="#" class="org-social-btn"><i class="fab fa-linkedin"></i></a>
-                       <a href="#" class="org-social-btn"><i class="fab fa-github"></i></a>
                      </div>
                    </div>
                  `);
@@ -2656,7 +2645,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        1</span>
+                                        1<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2668,7 +2658,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        2</span>
+                                        2<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2679,7 +2670,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        3</span>
+                                        3<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2690,7 +2682,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        4</span>
+                                        4<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2701,7 +2694,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        5</span>
+                                        5<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2713,7 +2707,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        6</span>
+                                        6<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2724,7 +2719,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        7</span>
+                                        7<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2736,7 +2732,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        8</span>
+                                        8<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2748,7 +2745,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        9</span>
+                                        9<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2760,7 +2758,8 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        10</span>
+                                        10<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <div
@@ -2772,14 +2771,15 @@
                                 <div
                                     class="core-team-placeholder w-full h-full flex items-center justify-center relative z-0 p-4 text-center">
                                     <span class="text-white/30 text-xs font-bold tracking-widest uppercase">Member
-                                        11</span>
+                                        11<br><br>Paste
+                                        URL</span>
                                 </div>
                             </div>
                             <!-- Clone 1-11 for seamless loop -->
                             <!-- (Cloning 1-6 first as existing) -->
                             <div class="core-team-item relative group overflow-hidden border border-white/10 rounded-full aspect-square bg-[#121212]/60 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
                                 aria-hidden="true">
-                                <img src="https://ik.imagekit.io/logicsync/WhatsApp%20Image%202026-03-28%20at%204.47.17%20PM.jpeg"
+                                <img src="https://ik.imagekit.io/logicsync/WhatsApp%20Image%202025-10-26%20at%2010.57.33_2a95ecda.jpg?updatedAt=1761471290203"
                                     alt="Member 1"
                                     class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
                             </div>
@@ -2805,76 +2805,120 @@
                                     class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
                             </div>
                             <div class="core-team-item relative group overflow-hidden border border-white/10 rounded-full aspect-square bg-[#121212]/60 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
-                                <div
-                                class="core-team-item relative group overflow-hidden border border-white/10 rounded-full aspect-square bg-[#121212]/60 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
                                 aria-hidden="true">
-                                <img src="https://ik.imagekit.io/logicsync/Krish.jpg" alt="Member 7"
+                                <img src="https://ik.imagekit.io/logicsync/akshara.jpg?updatedAt=1761473819022"
+                                    alt="Member 6"
+                                    class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
+                            </div>
+                            <!-- Clones for 7-11 -->
+                            <div class="core-team-item relative group overflow-hidden border border-white/10 rounded-full aspect-square bg-[#121212]/60 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
+                                aria-hidden="true">
+                                <img src="" alt="Member 7"
                                     class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
                             </div>
                             <div class="core-team-item relative group overflow-hidden border border-white/10 rounded-full aspect-square bg-[#121212]/60 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
                                 aria-hidden="true">
-                                <img src="https://ik.imagekit.io/logicsync/Anushka.jpg?updatedAt=1774635858415"
-                                    alt="Member 8"
+                                <img src="" alt="Member 8"
                                     class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
                             </div>
                             <div class="core-team-item relative group overflow-hidden border border-white/10 rounded-full aspect-square bg-[#121212]/60 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
                                 aria-hidden="true">
-                                <img src="https://ik.imagekit.io/logicsync/Shrishti%20.webp?updatedAt=1774634616965"
-                                    alt="Member 9"
+                                <img src="" alt="Member 9"
                                     class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
                             </div>
                             <div class="core-team-item relative group overflow-hidden border border-white/10 rounded-full aspect-square bg-[#121212]/60 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
                                 aria-hidden="true">
-                                <img src="https://ik.imagekit.io/logicsync/Zaid.jpg?updatedAt=1774634616466"
-                                    alt="Member 10"
+                                <img src="" alt="Member 10"
                                     class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
                             </div>
                             <div class="core-team-item relative group overflow-hidden border border-white/10 rounded-full aspect-square bg-[#121212]/60 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
                                 aria-hidden="true">
-                                <img src="https://ik.imagekit.io/logicsync/HARSHITA.jpg?updatedAt=1774634615639"
-                                    alt="Member 11"
+                                <img src="" alt="Member 11"
                                     class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
-                            </div>aspect-square bg-[#121212]/60 hover:border-purple-500/50
-                            hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-500"
-                            aria-hidden="true">
-                            <img src="" alt="Member 11"
-                                class="absolute inset-0 w-full h-full object-cover z-10 transition-transform duration-700 group-hover:scale-110">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="core-team-info">
+                        <h2>Core Team</h2>
+                        <p>Thanks to all who worked for it</p>
+                    </div>
+                </div>
+            </section>
+            <section class="flex flex-col items-center justify-center py-32" id="sponsors">
+                <div class="layered-header">
+                    <span class="header-bg-text">SPONSORS</span>
+                    <div class="header-fg-text h1-div-style">Our Sponsors</div>
+                </div>
+                <div class="w-full max-w-7xl px-10 flex flex-col gap-24">
+                    <!-- GOLD TIER -->
+                    <div class="flex flex-col items-center">
+                        <h2
+                            class="text-3xl md:text-4xl font-black text-amber-400 mb-12 uppercase tracking-[0.2em] drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">
+                            Gold Tier</h2>
+                        <div class="flex flex-row flex-wrap justify-center gap-12 w-full">
+                            <!-- PASTE GOLD SPONSOR CARDS OR IMAGES HERE -->
+                            <div
+                                class="relative w-64 h-32 md:w-80 md:h-40 bg-white/5 border border-amber-400/20 rounded-2xl flex items-center justify-center backdrop-blur-sm group hover:border-amber-400/50 transition-all duration-500 overflow-hidden shadow-[0_0_30px_rgba(251,191,36,0.05)]">
+                                <!-- Diagonal Label -->
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <span
+                                        class="text-amber-400/10 text-2xl md:text-3xl font-black uppercase tracking-widest -rotate-12 whitespace-nowrap select-none">
+                                        To Be Announced
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SILVER TIER -->
+                    <div class="flex flex-col items-center">
+                        <h2
+                            class="text-2xl md:text-3xl font-black text-slate-300 mb-10 uppercase tracking-[0.15em] drop-shadow-[0_0_12px_rgba(203,213,225,0.2)]">
+                            Silver Tier</h2>
+                        <div class="flex flex-row flex-wrap justify-center gap-10 w-full">
+                            <!-- PASTE SILVER SPONSOR CARDS OR IMAGES HERE -->
+                            <div
+                                class="relative w-56 h-28 md:w-72 md:h-36 bg-white/5 border border-slate-300/10 rounded-xl flex items-center justify-center backdrop-blur-sm group hover:border-slate-300/40 transition-all duration-500 overflow-hidden shadow-[0_0_20px_rgba(203,213,225,0.03)]">
+                                <!-- Diagonal Label -->
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <span
+                                        class="text-slate-300/10 text-xl md:text-2xl font-black uppercase tracking-widest -rotate-12 whitespace-nowrap select-none">
+                                        To Be Announced
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BRONZE TIER -->
+                    <div class="flex flex-col items-center">
+                        <h2
+                            class="text-xl md:text-2xl font-black text-[#cd7f32] mb-8 uppercase tracking-[0.1em] drop-shadow-[0_0_10px_rgba(205,127,50,0.2)]">
+                            Bronze Tier</h2>
+                        <div class="flex flex-row flex-wrap justify-center gap-8 w-full">
+                            <!-- PASTE BRONZE SPONSOR CARDS OR IMAGES HERE -->
+                            <div
+                                class="relative w-48 h-24 md:w-60 md:h-32 bg-white/5 border border-[#cd7f32]/10 rounded-lg flex items-center justify-center backdrop-blur-sm group hover:border-[#cd7f32]/40 transition-all duration-500 overflow-hidden shadow-[0_0_15px_rgba(205,127,50,0.02)]">
+                                <!-- Diagonal Label -->
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <span
+                                        class="text-[#cd7f32]/10 text-lg md:text-xl font-black uppercase tracking-widest -rotate-12 whitespace-nowrap select-none">
+                                        To Be Announced
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="core-team-info">
-                    <h2>Core Team</h2>
-                    <p>Thanks to all who worked for it</p>
-                </div>
         </div>
-        </section>
-        <section class="flex flex-col items-center justify-center py-32" id="sponsors">
-            <div class="layered-header">
-                <span class="header-bg-text">SPONSORS</span>
-                <h1 class="header-fg-text">Our Sponsors</h1>
-            </div>
-            <div class="w-full max-w-6xl px-10 flex flex-col gap-16">
-                <!-- SILVER TIER -->
-                <div class="flex flex-col items-center">
-                    <h2 class="text-2xl font-bold text-gray-400 mb-8 uppercase tracking-widest drop-shadow-md">
-                        Silver Tier</h2>
-                    <div class="flex flex-row flex-wrap justify-center gap-8">
-                        <!-- Sponsors empty -->
-                    </div>
-                    <!-- PASTE LOGO LINK BELOW -->
-                    <img src="https://ik.imagekit.io/logicsync/abhibus.jpeg?updatedAt=1762982986424" alt="Niia 512"
-                        class="w-3/4 h-3/4 object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-lg" />
-                </div>
-            </div>
-            </div>
-            </div>
+        </div>
         </section>
         <!-- DIGITAL SWAG SECTION -->
         <section id="swag"
             class="flex flex-col items-center justify-center py-32 px-4 md:px-10 lg:px-20 w-full z-[100] relative max-w-[1400px] mx-auto min-h-[80vh]">
             <div class="layered-header">
                 <span class="header-bg-text">BADGE</span>
-                <h1 class="header-fg-text">DIGITAL BADGE</h1>
+                <div class="header-fg-text h1-div-style">DIGITAL BADGE</div>
             </div>
             <!-- MAIN SWAG CARD -->
             <div
@@ -2886,11 +2930,11 @@
                     <div class="bg-[#13131a] rounded-2xl p-6 md:p-8 border border-[#2a2a35] shadow-inner flex flex-col gap-6"
                         style="font-family: 'League Spartan', sans-serif;">
                         <div>
-                            <h1 class="text-3xl md:text-4xl font-bold text-gray-100 mb-4">
+                            <div class="text-3xl md:text-4xl font-bold text-gray-100 mb-4 h1-div-style">
                                 CODE नक्षत्र <span
                                     class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">II</span>
                                 Badge
-                            </h1>
+                            </div>
                             <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
                                 Embark on an epic hack-adventure to 'explore the stars' at CODE नक्षत्र II. Craft
                                 your cosmic identity
@@ -3037,7 +3081,7 @@
             <div class="max-w-[1200px] mx-auto relative z-10">
                 <div class="layered-header">
                     <span class="header-bg-text">FAQs</span>
-                    <h1 class="header-fg-text">FAQs</h1>
+                    <div class="header-fg-text h1-div-style">FAQs</div>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" style="font-family: 'League Spartan', sans-serif;">
                     <!-- Column 1 -->
@@ -3472,12 +3516,12 @@
             </div>
             <!-- Documents -->
             <div class="flex flex-col items-center lg:items-start gap-4">
-                <h3
-                    class="text-lg font-bold text-white relative inline-block pb-1 mb-1 tracking-wide font-['League_Spartan']">
+                <div
+                    class="h3-div-style text-lg font-bold text-white relative inline-block pb-1 mb-1 tracking-wide font-['League_Spartan']">
                     Documents
                     <span
                         class="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full"></span>
-                </h3>
+                </div>
                 <a href="#" class="text-gray-300 hover:text-white transition-colors text-[15px]">CODE Nakshatra - Rule
                     Book /
                     Code of Conduct</a>
@@ -3487,12 +3531,12 @@
             </div>
             <!-- Social Handles -->
             <div class="flex flex-col items-center lg:items-start gap-4">
-                <h3
-                    class="text-lg font-bold text-white relative inline-block pb-1 mb-1 tracking-wide font-['League_Spartan']">
+                <div
+                    class="h3-div-style text-lg font-bold text-white relative inline-block pb-1 mb-1 tracking-wide font-['League_Spartan']">
                     Social Handles
                     <span
                         class="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full"></span>
-                </h3>
+                </div>
                 <div class="flex flex-row gap-4 items-center">
                     <a href="https://www.instagram.com/code_rangerss/" target="_blank"
                         class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-purple-500/20 hover:border-purple-500/50 transition-all text-gray-300 hover:text-white shadow-sm">
@@ -3520,12 +3564,12 @@
                                 d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                         </svg>
                     </a>
-                    <a href="#" target="_blank"
+                    <a href="https://chat.whatsapp.com/PASTE_YOUR_LINK_HERE" target="_blank"
                         class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-purple-500/20 hover:border-purple-500/50 transition-all text-gray-300 hover:text-white shadow-sm">
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512"
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512"
                             height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.276A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,49.231,1.864,1.864,0,0,0,2.063.276A486.296,486.296,0,0,0,611.433,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z">
+                                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-93.7-25.7l-6.7-4-69.6 18.3L72 359l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.6-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.6-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
                             </path>
                         </svg>
                     </a>
@@ -3533,12 +3577,12 @@
             </div>
             <!-- Contact Us -->
             <div class="flex flex-col items-center lg:items-start gap-4">
-                <h3
-                    class="text-xl md:text-2xl font-bold text-white relative inline-block pb-2 mb-2 tracking-wide font-['League_Spartan']">
+                <div
+                    class="h3-div-style text-xl md:text-2xl font-bold text-white relative inline-block pb-2 mb-2 tracking-wide font-['League_Spartan']">
                     Contact Us
                     <span
                         class="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full"></span>
-                </h3>
+                </div>
                 <a href="mailto:coderangerss@gmail.com"
                     class="text-gray-300 hover:text-white transition-colors text-[15px]">coderangerss@gmail.com</a>
             </div>
@@ -3618,7 +3662,7 @@
                 ease: 'back.out(1.2)',
             });
             /* ── 5. SECTION HEADINGS  – fade + slide up ─────────────── */
-            gsap.utils.toArray('h1').forEach(function (h) {
+            gsap.utils.toArray('.h1-div-style').forEach(function (h) {
                 gsap.from(h, {
                     scrollTrigger: { trigger: h, start: 'top 88%' },
                     opacity: 0,
