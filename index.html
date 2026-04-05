@@ -534,7 +534,7 @@
             pointer-events: none;
             filter: grayscale(100%);
             opacity: 1;
-            transition: filter 3s ease-out, opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: filter 0.8s ease-out, opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         #bgCanvas.color-active {
@@ -569,7 +569,7 @@
             z-index: 9999;
             background: #00040a;
             pointer-events: all;
-            transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: none;
         }
 
@@ -4169,10 +4169,10 @@
             function startLoop() {
                 // Fade out "CALIBRATING TELESCOPES..." briefly into the drawing
                 setTimeout(() => {
-                    plLoading.style.transition = 'opacity 0.8s ease-out';
+                    plLoading.style.transition = 'opacity 0.3s ease-out';
                     plLoading.style.opacity = '0';
-                    setTimeout(() => { plLoading.style.display = 'none'; }, 850);
-                }, 2500);
+                    setTimeout(() => { plLoading.style.display = 'none'; }, 300);
+                }, 1000);
                 requestAnimationFrame(loop);
             }
             function extractStars() {
@@ -4318,7 +4318,7 @@
                         }
                     });
                     if (phase === 'drawing') {
-                        stepProg += 0.045; // faster draw
+                        stepProg += 0.12; // super-fast draw
                         if (stepProg >= 1) { stepProg = 0; currentStep++; }
                         if (currentStep > maxStep) {
                             phase = 'waiting';
@@ -4329,17 +4329,17 @@
                             if (typeof window.showInfoBoxes === 'function') window.showInfoBoxes();
                             setTimeout(() => {
                                 if (typeof window.hideInfoBoxes === 'function') window.hideInfoBoxes();
-                            }, 5000);
+                            }, 1200);
                             setTimeout(() => {
                                 phase = 'hyperspace'; warpMult = 0.05; warpRot = 0;
                                 stars.forEach(s => { s.warpDist = 0; s.warpVel = Math.random() * 4 + 2; });
-                            }, 5500);
+                            }, 1500);
                         }
                     }
                 } else if (phase === 'hyperspace') {
                     ctx.shadowBlur = 0;
                     ctx.fillStyle = '#00040a'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    warpMult *= 1.08; warpRot += 0.015 * warpMult;
+                    warpMult *= 1.22; warpRot += 0.015 * warpMult;
                     let onScreen = 0; ctx.lineCap = 'round';
                     stars.forEach(s => {
                         s.warpDist += s.warpVel * warpMult;
