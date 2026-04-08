@@ -7,39 +7,42 @@ body {
   /* Dark background */
   color: #e5e7eb;
   /* Tailwind's gray-200 */
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   font-family: 'Arial', sans-serif;
-  /* Default font */
+  width: 100%;
+}
+
+/* Prevent horizontal overflow globally */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Headings */
 h1, .h1-div-style {
-  font-size: 2.5rem;
-  /* 40px */
-  font-weight: 600;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
   background: linear-gradient(to right, #6b5bff, #00bcd4);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 1.5rem 0;
+  margin: 1.2rem 0;
   display: block;
+  line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.5rem;
-  /* 24px */
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
   font-weight: 600;
   color: #ffffff;
-  /* White */
 }
 
 h3, .h3-div-style {
-  font-size: 1.25rem;
-  /* 20px */
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 500;
   color: #e5e7eb;
-  /* Tailwind's gray-200 */
 }
 
 h4 {
@@ -48,6 +51,13 @@ h4 {
   font-weight: 500;
   color: #e5e7eb;
   /* Tailwind's gray-200 */
+}
+
+.emoji-fix {
+    -webkit-text-fill-color: initial !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    display: inline-block;
 }
 
 /* Links */
@@ -270,19 +280,19 @@ a:hover {
 /* Row-based layout (snake pattern) */
 .tl-cosmic-item-even {
   flex-direction: row;
-  padding-left: 15%;
+  padding-left: 10%;
 }
 
 .tl-cosmic-item-odd {
   flex-direction: row-reverse;
-  padding-right: 15%;
+  padding-right: 10%;
   text-align: right;
 }
 
 /* Planet Circle (as Image Frame) */
 .planet-sphere {
-  width: 110px;
-  height: 110px;
+  width: clamp(80px, 15vw, 110px);
+  height: clamp(80px, 15vw, 110px);
   border-radius: 50%;
   position: relative;
   flex-shrink: 0;
@@ -369,25 +379,21 @@ a:hover {
 }
 
 .tl-cosmic-descr {
-  font-size: 0.92rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.95rem);
   color: #94a3b8;
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
-  .tl-cosmic-item-even {
-    padding-left: 10%;
-  }
-
-  .tl-cosmic-item-odd {
-    padding-right: 10%;
+  .tl-cosmic-item-even, .tl-cosmic-item-odd {
+    padding: 0 5%;
   }
 
   .planet-sphere {
-    width: 95px;
-    height: 95px;
+    width: 90px;
+    height: 90px;
   }
 }
 
@@ -553,7 +559,7 @@ a:hover {
   /* mobile: 1 col  */
   gap: 2rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 350px;
   padding: 0 1.25rem 3rem;
   margin: 0 auto;
 }
@@ -561,12 +567,14 @@ a:hover {
 @media (min-width: 640px) {
   .jg-grid {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 650px;
   }
 }
 
 @media (min-width: 1280px) {
   .jg-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
   }
 }
 
@@ -676,7 +684,7 @@ a:hover {
 
 /* ---------- Info Block ---------- */
 .jg-info {
-  padding: 1.25rem 1.25rem 1.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -742,7 +750,7 @@ a:hover {
 
 .hero-brand:hover {
   animation-play-state: paused;
-  transform: translateY(-12px) scale(1.07);
+  transform: translateY(-8px) scale(1.04);
   filter:
     drop-shadow(0 0 18px rgba(139, 92, 246, 0.7)) drop-shadow(0 0 40px rgba(34, 211, 238, 0.35));
 }
@@ -769,14 +777,13 @@ a:hover {
 
 .about-glass-box {
   max-width: 850px;
-  width: 92%;
-  background: rgba(13, 8, 35, 0.7);
+  width: 95%;
+  background: rgba(13, 8, 35, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(168, 85, 247, 0.15);
-  border-radius: 3rem;
-  /* Slightly tighter rounding */
-  padding: 3.5rem 4rem;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 2.5rem;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
   /* Increased from 1.8rem 2.5rem to prevent asset overlap with text */
   text-align: center;
   position: relative;
@@ -825,7 +832,7 @@ a:hover {
 .about-asset {
   position: absolute;
   pointer-events: none;
-  z-index: 20;
+  z-index: 999;
   transition: transform 0.3s ease;
 }
 
@@ -874,25 +881,34 @@ a:hover {
 
 @media (max-width: 768px) {
   .about-glass-box {
-    border-radius: 2rem;
-    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+    padding: 2rem 1.25rem;
+    width: 92%;
   }
 
   .about-asset-astronaut {
-    width: 130px;
-    left: -20px;
-    top: -60px;
+    width: 100px;
+    left: 0px;
+    top: -55px;
   }
 
   .about-asset-planet {
-    width: 160px;
-    right: -20px;
-    bottom: -60px;
+    width: 130px;
+    right: -10px;
+    bottom: -50px;
   }
 
   .about-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
+}
+
+@media (max-width: 480px) {
+  .about-asset {
+    opacity: 0.7; /* Increased from 0.5 for better visibility */
+  }
+  .about-asset-astronaut { width: 85px; top: -45px; left: 0px; }
+  .about-asset-planet { width: 110px; bottom: -45px; right: 0px; }
 }
 
 /* =============================================
@@ -1131,11 +1147,11 @@ a:hover {
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1.5rem;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 2.5rem);
   background: rgba(10, 5, 30, 0.4);
   backdrop-filter: blur(12px);
   overflow: hidden;
-  gap: 2rem;
+  gap: 1.5rem;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -1202,23 +1218,24 @@ a:hover {
 }
 
 .core-team-info {
-  width: 320px;
+  width: 300px;
   flex-shrink: 0;
-  padding-left: 2rem;
+  padding-left: clamp(1rem, 4vw, 2.5rem);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .core-team-info h2 {
   font-family: 'League Spartan', sans-serif;
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 6vw, 2.2rem);
   font-weight: 800;
   color: #fff;
   margin: 0;
+  line-height: 1.1;
 }
 
 .core-team-info p {
   font-family: 'League Spartan', sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   color: #c084fc;
   margin: 5px 0 0 0;
 }
