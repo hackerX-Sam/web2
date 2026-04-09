@@ -3792,75 +3792,127 @@
             const downloadBtn = document.getElementById('swag-download');
             let frameImage = new Image();
             frameImage.crossOrigin = "anonymous";
-            frameImage.src = "https://ik.imagekit.io/logicsync/WhatsApp%20Image%202026-03-16%20at%209.48.39%20PM.jpeg";
+            frameImage.src = "https://ik.imagekit.io/logicsync/frame.png";
             let userImage = new Image();
+            let detectedBox = null;
+
             function renderCanvas() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                // Background Color
-                ctx.fillStyle = '#0a0a0c';
+
+                // 1. Background
+                ctx.fillStyle = '#0a0a0c'; // Deep obsidian base
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                // Draw Frame First (Because it is an opaque JPEG)
-                if (frameImage.complete && frameImage.src) {
-                    ctx.drawImage(frameImage, 0, 0, canvas.width, canvas.height);
-                } else if (!frameImage.src) {
-                    // Placeholder when no frame is provided
-                    const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-                    gradient.addColorStop(0, '#a855f7'); // purple-500
-                    gradient.addColorStop(1, '#06b6d4'); // cyan-500
-                    ctx.strokeStyle = gradient;
-                    ctx.lineWidth = 15;
-                    ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
-                    ctx.font = 'bold 36px sans-serif';
-                    ctx.fillStyle = gradient;
-                    ctx.textAlign = 'center';
-                    ctx.fillText('Paste Frame Link In The Card To Preview', canvas.width / 2, 80);
-                }
-                // Then Draw User Photo exactly inside the black placeholder
-                // Placeholder relative coords based on 967x1202 source: 
-                // Left=197, Top=274, Width=583, Height=568
+
+                const fallbackBox = {
+                    x: (197 / 967) * canvas.width,
+                    y: (274 / 1202) * canvas.height,
+                    w: (583 / 967) * canvas.width,
+                    h: (568 / 1202) * canvas.height
+                };
+
+                const box = detectedBox || fallbackBox;
+
+                // 2. User Photo (Background Layer)
                 if (userImage.src && frameImage.complete) {
-                    const boxX = (197 / 967) * canvas.width;
-                    const boxY = (274 / 1202) * canvas.height;
-                    const boxW = (583 / 967) * canvas.width;
-                    const boxH = (568 / 1202) * canvas.height;
-                    const hRatio = boxW / userImage.width;
-                    const vRatio = boxH / userImage.height;
-                    const ratio = Math.max(hRatio, vRatio);
+                    // Bleed ensures we cover the black boundary perfectly
+                    const bleed = 4; // 4px extra coverage
+                    const bX = box.x - bleed;
+                    const bY = box.y - bleed;
+                    const bW = box.w + (bleed * 2);
+                    const bH = box.h + (bleed * 2);
+
+                    const hRatio = bW / userImage.width;
+                    const vRatio = bH / userImage.height;
+                    const ratio = Math.max(hRatio, vRatio); // Fill/Cover mode
+
                     const renderW = userImage.width * ratio;
                     const renderH = userImage.height * ratio;
-                    const renderX = boxX + (boxW - renderW) / 2;
-                    const renderY = boxY + (boxH - renderH) / 2;
+                    const renderX = bX + (bW - renderW) / 2;
+                    const renderY = bY + (bH - renderH) / 2;
+
                     ctx.save();
                     ctx.beginPath();
-                    ctx.rect(boxX, boxY, boxW, boxH);
-                    ctx.clip(); // Ensure image doesn't bleed out of placeholder
+                    // Sharp boundary clip
+                    ctx.rect(box.x, box.y, box.w, box.h);
+                    ctx.clip();
                     ctx.drawImage(userImage, 0, 0, userImage.width, userImage.height,
                         renderX, renderY, renderW, renderH);
                     ctx.restore();
                 }
-                // Name Layer
+
+                // 3. Frame (Middle Layer)
+                if (frameImage.complete && frameImage.src) {
+                    ctx.drawImage(frameImage, 0, 0, canvas.width, canvas.height);
+                }
+
+                // 4. Name (Top Layer)
                 const nameText = nameInput.value.trim();
                 if (nameText) {
-                    ctx.font = 'bold 85px "Inter", "Segoe UI", sans-serif';
+                    // Dynamic font size: ~6.3% of canvas height
+                    const fontSize = Math.floor(canvas.height * 0.063);
+                    ctx.font = `bold ${fontSize}px "League Spartan", sans-serif`;
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
                     ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
-                    ctx.shadowBlur = 20;
-                    ctx.shadowOffsetX = 4;
-                    ctx.shadowOffsetY = 4;
+                    ctx.shadowBlur = 15;
+                    ctx.shadowOffsetX = 2;
+                    ctx.shadowOffsetY = 2;
                     ctx.fillStyle = '#ffffff';
-                    ctx.fillText(nameText, canvas.width / 2, canvas.height - 180);
+                    // Position at ~86.6% down the canvas
+                    ctx.fillText(nameText, canvas.width / 2, canvas.height * 0.866);
                     ctx.shadowColor = 'transparent';
                 }
             }
-            renderCanvas(); // Initial render
-            // Observers
+
+            function detectPlaceholder() {
+                try {
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = frameImage.width;
+                    tempCanvas.height = frameImage.height;
+                    const tCtx = tempCanvas.getContext('2d');
+                    tCtx.drawImage(frameImage, 0, 0);
+                    const data = tCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height).data;
+
+                    let minX = tempCanvas.width, minY = tempCanvas.height, maxX = 0, maxY = 0;
+                    let found = false;
+
+                    // Dense sampling for accuracy
+                    const step = 2;
+                    for (let y = 0; y < tempCanvas.height; y += step) {
+                        for (let x = 0; x < tempCanvas.width; x += step) {
+                            const i = (y * tempCanvas.width + x) * 4;
+                            const alpha = data[i + 3];
+                            const r = data[i], g = data[i + 1], b = data[i + 2];
+                            
+                            // Detect hollow space (transparent or very dark black)
+                            if (alpha < 150 || (r < 30 && g < 30 && b < 30)) {
+                                if (x < minX) minX = x;
+                                if (y < minY) minY = y;
+                                if (x > maxX) maxX = x;
+                                if (y > maxY) maxY = y;
+                                found = true;
+                            }
+                        }
+                    }
+                    if (found) {
+                        // Tighten the box by 1px to avoid any edge artifacts
+                        detectedBox = { x: minX + 1, y: minY + 1, w: (maxX - minX) - 2, h: (maxY - minY) - 2 };
+                        console.log("Badge space locked at:", detectedBox);
+                    }
+                } catch (e) {
+                    console.warn("Using fallback coordinates due to CORS policy.");
+                }
+                renderCanvas();
+            }
+
+            renderCanvas();
+
             frameImage.onload = () => {
                 if (frameImage.width && frameImage.height) {
                     canvas.width = frameImage.width;
                     canvas.height = frameImage.height;
                 }
-                renderCanvas();
+                detectPlaceholder(); // Automatically find the "black/hollow" area
             };
             frameImage.onerror = () => renderCanvas();
             nameInput.addEventListener('input', () => renderCanvas());
